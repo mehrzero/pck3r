@@ -27,10 +27,11 @@ static void install_pck3r (GtkWidget *wid, GtkWidget *win){
     system("echo pak3r-terminal-emu  copied ...");
     
     system("echo pck3r dependences ...");
-    system("sudo apt install wget");
-    system("sudo apt install curl");
-    system("sudo apt install libgtk-3-dev");
-    system("sudo apt install libvte-2.91-0 ");
+    // add (-y)
+    system("sudo apt install wget -y");
+    system("sudo apt install curl -y");
+    system("sudo apt install libgtk-3-dev -y");
+    system("sudo apt install libvte-2.91-0 -y");
 
 
     system("echo pck3r intalled !!!!!");
