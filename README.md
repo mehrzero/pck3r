@@ -81,6 +81,10 @@ good luck...
     $ pck3r term
     (command for run, pck3r terminal emulator)
 
+"google" command : 
+
+    $ pck3r google <browser>  < search world1, )>(don't use double quotations) 
+    (command for quick search in google)
 
 # install pck3r  global 
 
