@@ -378,6 +378,86 @@ int main ( int argc , char *argv[]){
                 break;
                 
             }
+            else if(strcmp(argv[1], "google")==0){
+                    if (argv[2] == NULL){
+                        system("firefox google.com");
+                    }
+                    
+                    
+
+
+                    else if(argv[2] != NULL && argv[3] != NULL ){
+                        
+                    
+                        char searcher_do[2000] = {"\0"};
+                        char browser[100] = {"\0"};
+                        
+                        if (strcmp(argv[2], "chrome")==0){
+                            
+                            strcat(searcher_do, "google-chrome ");
+                            strcat(searcher_do, " https://www.google.com/search?q=");   
+                        }
+
+                        else{                            
+                            strcat(browser, argv[2]);
+                            strcat(searcher_do, browser);
+                            strcat(searcher_do, " ");
+                            strcat(searcher_do, " https://www.google.com/search?q=");
+                        }
+
+                        for (int i = 3; i < argc; i++){
+                            strcat(searcher_do, argv[i]);
+                            strcat(searcher_do, "+");
+                        
+                        }
+ 
+                        
+                        if (( system(searcher_do) )==0){
+                        
+                            sys_ok();
+                        
+                        }
+                        
+                        else{
+                            
+                            sys_error();
+                        
+                        }
+                        
+                        
+                    }
+
+
+
+                    else if (strcmp(argv[2], "chrome")==0 || strcmp(argv[2], "google-chrome")==0){
+                            if (argv[3]==NULL){
+                                if(( system("google-chrome google.com") )==0){
+                                    sys_ok();
+                                }
+                                else{
+                                    sys_error();
+                                }
+                                
+                            }                            
+                    }
+                    
+                    else if (strcmp(argv[2], "firefox")==0){
+                            if (argv[3]==NULL){
+                                if(( system("firefox google.com") )==0){
+                                    sys_ok();
+                                }
+                                else{
+                                    sys_error();
+                                }
+                                
+                            }                            
+                    }
+                    // else{
+                    //     sys_error();
+                    // }
+                    break;
+                    
+            }
 
             /*
              *
@@ -596,7 +676,7 @@ void sys_ok(){
 
 void version(){
     puts(GRN);
-    printf("version : 1.0"); 
+    printf("version : 1.0\nCreator : amzy-0(M.Amin Azimi .K)\n");
 }
 
 /*
