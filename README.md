@@ -83,8 +83,18 @@ good luck...
 
 "google" command : 
 
-    $ pck3r google <browser>  < search world1, )>(don't use double quotations) 
-    (command for quick search in google)
+
+    $pck3r google <browser> <search section(word1 word2 word3 ...)
+    (quick google search ...)
+    (like this : $ pck3r google firefox what is google search engine)
+
+"tilix" command : 
+
+
+    $ pck3r tilix
+    (tilix terminal ...)
+
+
 
 # install pck3r  global 
 
