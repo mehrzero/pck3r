@@ -20,6 +20,8 @@ static void update_pck3r (GtkWidget *wid, GtkWidget *win){
     system("pwd");
     system("sudo cp -r ../pck3r .");
     system("sudo cp -r ../pck3r-terminal-emu .");
+    system("sudo cp -r ../pck3r-terminal-emu-tilix .");
+    
 
     system("sudo cp -r ./pck3r /bin/");
     system("echo pck3r copied ...");
@@ -27,11 +29,16 @@ static void update_pck3r (GtkWidget *wid, GtkWidget *win){
     system("sudo cp -r ./pck3r-terminal-emu /bin");
     system("echo pak3r-terminal-emu  copied ...");
     
+    system("sudo cp -r ./pck3r-terminal-emu-tilix /bin");
+    system("echo pak3r-terminal-emu-tilix copied ...");
+    
     system("echo pck3r dependences ...");
-    system("sudo apt install wget -y ");
-    system("sudo apt install curl -y ");
-    system("sudo apt install libgtk-3-dev -y ");
-    system("sudo apt install libvte-2.91-0  -y ");
+    // add (-y)
+    system("sudo apt install wget -y");
+    system("sudo apt install curl -y");
+    system("sudo apt install libreadline-dev -y");
+    system("sudo apt install libgtk-3-dev -y");
+    system("sudo apt install libvte-2.91-0 -y");
 
     system("echo pck3r updated !!!!!");
     system("sleep 5");
