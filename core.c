@@ -59,14 +59,14 @@
     void wine_installer();
     void pck3r_help();
     void google(int argc, char *argv[]);
-    void virtualization_command();
+
 
 ///////////////////////
 
 int main ( int argc , char *argv[],  char * envp []){
     
     /*
-     * int i ; (i variable in for loop (for argv[index number(i)]))
+     * int i ; (i variable , count of  for loop (for argv[index number(i)]))
      */
 
     int i;
@@ -85,7 +85,7 @@ int main ( int argc , char *argv[],  char * envp []){
             if(argc == 1){
                 sys_error();
                 printf("%splease enter a command(after \"pck3r\").\nfor see the all command : $ pck3r help\n",RED);
-                virtualization_command();
+                
                 
             }
 
@@ -866,7 +866,3 @@ void google(int argc, char *argv[]){
                     }         
 }
 
-void virtualization_command(){
-
-    printf("VC called ! \n");
-}
