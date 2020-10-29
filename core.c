@@ -15,6 +15,8 @@
 #include <ctype.h>
 #include <sys/unistd.h>
 #include <string.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 /*
  *define zone (length of arrays)
@@ -56,11 +58,13 @@
     void version();
     void wine_installer();
     void pck3r_help();
+    void google(int argc, char *argv[]);
+    void virtualization_command();
 
 ///////////////////////
 
-int main ( int argc , char *argv[]){
-
+int main ( int argc , char *argv[],  char * envp []){
+    
     /*
      * int i ; (i variable in for loop (for argv[index number(i)]))
      */
@@ -81,6 +85,8 @@ int main ( int argc , char *argv[]){
             if(argc == 1){
                 sys_error();
                 printf("%splease enter a command(after \"pck3r\").\nfor see the all command : $ pck3r help\n",RED);
+                virtualization_command();
+                
             }
 
             /*
@@ -107,13 +113,14 @@ int main ( int argc , char *argv[]){
             /*
              * if argv[i] is "install" ($ pck3r install)
              */
+            else if (strcmp(argv[1], "install")==0 ){
 
-            else if (strcmp(argv[1], "install")==0){
 
                 /*
                  * if after "install" is NULL
                  * like this : $ pck3r install "\0"
                  */
+
 
                if(argv[2] == NULL){
                     sys_error();
@@ -179,7 +186,7 @@ int main ( int argc , char *argv[]){
                         printf("%s installed \n",finally_do);
                     }
 
-                    printf("packages : %s%s\n",CYN, finally_do);
+                    printf("package(s) : %s%s\n",CYN, finally_do);
                     break;
 
                 }
@@ -192,7 +199,7 @@ int main ( int argc , char *argv[]){
              */
 
             else if(strcmp(argv[1], "uninstall")==0){
-
+                    
                 /*
                  * if argv[2] is null
                  * like this ($ pck3r uninstall "\0")
@@ -216,12 +223,11 @@ int main ( int argc , char *argv[]){
                     if((system("sudo apt purge nodejs"))!=0){
                         sys_error();
                         break;
-                    }
+                    }   
                     else{
                         sys_ok();
-                        break;
+                        printf("\n%s%s removed\n",GRN,argv[i]);
                     }
-
                 }
 
 
@@ -230,12 +236,27 @@ int main ( int argc , char *argv[]){
                  */
 
                 else if(argv[2]!=NULL){
-                    char finally_do[200] = "sudo apt purge ";
                     printf("%sremoving %s !\n",YEL, argv[2]);
-                    strcat(finally_do, argv[2]);
-                    system("echo \x1B[33m ");
-                    system(finally_do);
-                    break;
+                        i=2;
+                        char apter[1000] = "sudo apt purge ";
+                        char finally_do[1000] = {"\0"};
+                        while (argv[i]!=NULL){
+                            strcat(finally_do, argv[i]);
+                            strcat(finally_do, " ");
+                            i++;
+                        }
+                        strcat(apter, finally_do);
+                        if((system(apter))!=0){
+                            sys_error();
+                            printf("some error found !!");
+                        }
+                        else{
+                            sys_ok();
+                            printf("%s uninstalled \n",finally_do);
+                        }
+
+                        printf("package(s) : %s%s\n",CYN, finally_do);
+                        break;                    
                 }
             }
 
@@ -379,84 +400,15 @@ int main ( int argc , char *argv[]){
                 
             }
             else if(strcmp(argv[1], "google")==0){
-                    if (argv[2] == NULL){
-                        system("firefox google.com");
-                    }
-                    
-                    
-
-
-                    else if(argv[2] != NULL && argv[3] != NULL ){
-                        
-                    
-                        char searcher_do[2000] = {"\0"};
-                        char browser[100] = {"\0"};
-                        
-                        if (strcmp(argv[2], "chrome")==0){
-                            
-                            strcat(searcher_do, "google-chrome ");
-                            strcat(searcher_do, " https://www.google.com/search?q=");   
-                        }
-
-                        else{                            
-                            strcat(browser, argv[2]);
-                            strcat(searcher_do, browser);
-                            strcat(searcher_do, " ");
-                            strcat(searcher_do, " https://www.google.com/search?q=");
-                        }
-
-                        for (int i = 3; i < argc; i++){
-                            strcat(searcher_do, argv[i]);
-                            strcat(searcher_do, "+");
-                        
-                        }
- 
-                        
-                        if (( system(searcher_do) )==0){
-                        
-                            sys_ok();
-                        
-                        }
-                        
-                        else{
-                            
-                            sys_error();
-                        
-                        }
-                        
-                        
-                    }
-
-
-
-                    else if (strcmp(argv[2], "chrome")==0 || strcmp(argv[2], "google-chrome")==0){
-                            if (argv[3]==NULL){
-                                if(( system("google-chrome google.com") )==0){
-                                    sys_ok();
-                                }
-                                else{
-                                    sys_error();
-                                }
-                                
-                            }                            
-                    }
-                    
-                    else if (strcmp(argv[2], "firefox")==0){
-                            if (argv[3]==NULL){
-                                if(( system("firefox google.com") )==0){
-                                    sys_ok();
-                                }
-                                else{
-                                    sys_error();
-                                }
-                                
-                            }                            
-                    }
-                    // else{
-                    //     sys_error();
-                    // }
-                    break;
-                    
+                google(argc, argv);
+                break;
+            }
+            
+            /* tilix command */
+            
+            else if(strcmp(argv[1], "tilix")==0){
+                system("./pck3r-terminal-emu-tilix");
+                break;
             }
 
             /*
@@ -801,4 +753,120 @@ puts("");
 puts("\"term\" command :");
 puts("    $pck3r term");
 puts("    (command for run, pck3r terminal emulator)");
+puts("");
+puts("\"google\" command :"); 
+puts("");
+puts("");
+puts("    $pck3r google <browser> <search section(word1 word2 word3 ...)");
+puts("    (quick google search ...)");
+puts("    (like this : $ pck3r google firefox what is google search engine)");
+puts("");
+puts("\"tilix\" command :"); 
+puts("");
+puts("");
+puts("    $ pck3r tilix");
+puts("    (tilix terminal ...)");
+
+}
+
+/*
+ * 
+ * 
+ * google function : 
+ * quick google search 
+ * this function concatenate all args 
+ * and then 
+ * search all args to the google search engine
+ * you can edit or costumize this code section for your self 
+ * you must concatenate all agrs if you want to edit this code section
+ * 
+ * 
+ */
+
+void google(int argc, char *argv[]){
+
+    if (argv[2] == NULL){
+        system("firefox google.com");
+    }
+                    
+                    
+
+
+                    else if(argv[2] != NULL && argv[3] != NULL ){
+                        
+                    
+                        char searcher_do[2000] = {"\0"};
+                        char browser[100] = {"\0"};
+                        
+                        if (strcmp(argv[2], "chrome")==0){
+                            
+                            strcat(searcher_do, "google-chrome ");
+                            strcat(searcher_do, " https://www.google.com/search?q=");   
+                        }
+
+                        else{                            
+                            strcat(browser, argv[2]);
+                            strcat(searcher_do, browser);
+                            strcat(searcher_do, " ");
+                            strcat(searcher_do, " https://www.google.com/search?q=");
+                        }
+
+                        for (int i = 3; i < argc; i++){
+                            strcat(searcher_do, argv[i]);
+                            strcat(searcher_do, "+");
+                        
+                        }
+ 
+                        
+                        if (( system(searcher_do) )==0){
+                        
+                            sys_ok();
+                            printf("%s%s close \n", GRN, argv[2]);
+                        
+                        }
+                        
+                        else{
+                            
+                            sys_error();
+
+                        }
+                        
+                        
+                    }
+
+
+
+                    else if (strcmp(argv[2], "chrome")==0 || strcmp(argv[2], "google-chrome")==0){
+                            if (argv[3]==NULL){
+                                if(( system("google-chrome google.com") )==0){
+                                    sys_ok();
+                                    printf("%s%s close \n", GRN, argv[2]);
+                                }
+                                else{
+                                    sys_error();
+                                }
+                                
+                            }                            
+                    }
+                    /*
+                     * if user want to open google in firefox 
+                     */
+                    else if (strcmp(argv[2], "firefox")==0){
+                            if (argv[3]==NULL){
+                                if(( system("firefox google.com") )==0){
+                                    sys_ok();
+                                    printf("%s%s close \n", GRN, argv[2]);
+                                    
+                                }
+                                else{
+                                    sys_error();
+                                }
+                                
+                            }                            
+                    }         
+}
+
+void virtualization_command(){
+
+    printf("VC called ! \n");
 }
