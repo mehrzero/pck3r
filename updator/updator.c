@@ -18,9 +18,9 @@ static void update_pck3r (GtkWidget *wid, GtkWidget *win){
 
     system(".././source-updator-for-dev");
     system("pwd");
-    system("sudo cp -r ../pck3r .");
-    system("sudo cp -r ../pck3r-terminal-emu .");
-    system("sudo cp -r ../pck3r-terminal-emu-tilix .");
+    system("sudo cp -r ../bin/pck3r .");
+    system("sudo cp -r ../bin/pck3r-terminal-emu .");
+    system("sudo cp -r ../bin/pck3r-terminal-emu-tilix .");
     
 
     system("sudo cp -r ./pck3r /bin/");
@@ -39,6 +39,7 @@ static void update_pck3r (GtkWidget *wid, GtkWidget *win){
     system("sudo apt install libreadline-dev -y");
     system("sudo apt install libgtk-3-dev -y");
     system("sudo apt install libvte-2.91-0 -y");
+    system("sudo rm -r  pck3r-terminal* pck3r ");
 
     system("echo pck3r updated !!!!!");
     system("sleep 5");

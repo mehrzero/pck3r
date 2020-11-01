@@ -15,33 +15,34 @@ static void Pck3r_installer (GtkWidget *wid, GtkWidget *win){
 static void install_pck3r (GtkWidget *wid, GtkWidget *win){
     GtkWidget *dialog_after_install = NULL;
 
-    system(".././source-updator-for-dev");
-    system("pwd");
-    system("sudo cp -r ../pck3r .");
-    system("sudo cp -r ../pck3r-terminal-emu .");
-    system("sudo cp -r ../pck3r-terminal-emu-tilix .");
-    
+        system(".././source-updator-for-dev");
+        system("pwd");
+        system("sudo cp -r ../bin/pck3r .");
+        system("sudo cp -r ../bin/pck3r-terminal-emu .");
+        system("sudo cp -r ../bin/pck3r-terminal-emu-tilix .");
+        
 
-    system("sudo cp -r ./pck3r /bin/");
-    system("echo pck3r copied ...");
+        system("sudo cp -r ./pck3r /bin/");
+        system("echo pck3r copied ...");
 
-    system("sudo cp -r ./pck3r-terminal-emu /bin");
-    system("echo pak3r-terminal-emu  copied ...");
-    
-    system("sudo cp -r ./pck3r-terminal-emu-tilix /bin");
-    system("echo pak3r-terminal-emu-tilix copied ...");
-    
-    system("echo pck3r dependences ...");
-    // add (-y)
-    system("sudo apt install wget -y");
-    system("sudo apt install curl -y");
-    system("sudo apt install libreadline-dev -y");
-    system("sudo apt install libgtk-3-dev -y");
-    system("sudo apt install libvte-2.91-0 -y");
+        system("sudo cp -r ./pck3r-terminal-emu /bin");
+        system("echo pak3r-terminal-emu  copied ...");
+        
+        system("sudo cp -r ./pck3r-terminal-emu-tilix /bin");
+        system("echo pak3r-terminal-emu-tilix copied ...");
+        
+        system("echo pck3r dependences ...");
 
+        system("sudo apt install wget -y");
+        system("sudo apt install curl -y");
+        system("sudo apt install libreadline-dev -y");
+        system("sudo apt install libgtk-3-dev -y");
+        system("sudo apt install libvte-2.91-0 -y");
+        system("sudo rm -r  pck3r-terminal* pck3r ");
 
-    system("echo pck3r intalled !!!!!");
-    system("sleep 5");
+        system("echo pck3r intalled !!!!!");
+        system("sleep 5");
+        
     dialog_after_install = gtk_message_dialog_new (GTK_WINDOW (win), GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
     "Pck3r installed!\n");
     gtk_window_set_position (GTK_WINDOW (dialog_after_install), GTK_WIN_POS_CENTER);
