@@ -785,84 +785,98 @@ puts("    (tilix terminal ...)");
 
 void google(int argc, char *argv[]){
 
-    if (argv[2] == NULL){
+    if (argv[2]==NULL){
         system("firefox google.com");
     }
+
+    
+
+    else if(argv[2] != NULL && argv[3] != NULL ){
+        
+    
+        char searcher_do[2000] = {"\0"};
+        char browser[100] = {"\0"};
+        
+
+         if (strcmp(argv[2], "chrome")==0){
+            
+            strcat(searcher_do, "google-chrome ");
+            strcat(searcher_do, " https://www.google.com/search?q=");   
+        }
+
+        else{                            
+            strcat(browser, argv[2]);
+            strcat(searcher_do, browser);
+            strcat(searcher_do, " ");
+            strcat(searcher_do, " https://www.google.com/search?q=");
+        }
+
+        for (int i = 3; i < argc; i++){
+            strcat(searcher_do, argv[i]);
+            strcat(searcher_do, "+");
+        
+        }
+
+        if (( system(searcher_do) )==0){
+        
+            sys_ok();
+            printf("%s%s close \n", GRN, argv[2]);
+        
+        }
+        
+        else{
+            
+            sys_error();
+            
+        }
+        
+        
+    }
+
+
+
+    else if (strcmp(argv[2], "chrome")==0 || strcmp(argv[2], "google-chrome")==0){
+            if (argv[3]==NULL){
+                if(( system("google-chrome google.com") )==0){
+                    sys_ok();
+                    printf("%s%s close \n", GRN, argv[2]);
+                }
+                else{
                     
+                    sys_error();
+                    printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
+                    printf("\nclose browser with : CTRL + Ws  ");
+                
+                }
+                
+            }                            
+    }
+    /*
+        * if user want to open google in firefox 
+        */
+    else if (strcmp(argv[2], "firefox")==0){
+            if (argv[3]==NULL){
+                if(( system("firefox google.com") )==0){
+                    sys_ok();
+                    printf("%s%s closed \n", GRN, argv[2]);
                     
+                }
+                else{
+                    sys_error();
+                    printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
 
+                }
+                
+            }                            
+    }
 
-                    else if(argv[2] != NULL && argv[3] != NULL ){
-                        
-                    
-                        char searcher_do[2000] = {"\0"};
-                        char browser[100] = {"\0"};
-                        
-                        if (strcmp(argv[2], "chrome")==0){
-                            
-                            strcat(searcher_do, "google-chrome ");
-                            strcat(searcher_do, " https://www.google.com/search?q=");   
-                        }
+    else {
 
-                        else{                            
-                            strcat(browser, argv[2]);
-                            strcat(searcher_do, browser);
-                            strcat(searcher_do, " ");
-                            strcat(searcher_do, " https://www.google.com/search?q=");
-                        }
+        sys_error();
+        printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
+        printf("\nclose browser with : CTRL + Ws  ");
 
-                        for (int i = 3; i < argc; i++){
-                            strcat(searcher_do, argv[i]);
-                            strcat(searcher_do, "+");
-                        
-                        }
- 
-                        
-                        if (( system(searcher_do) )==0){
-                        
-                            sys_ok();
-                            printf("%s%s close \n", GRN, argv[2]);
-                        
-                        }
-                        
-                        else{
-                            
-                            sys_error();
+    }
 
-                        }
-                        
-                        
-                    }
-
-
-
-                    else if (strcmp(argv[2], "chrome")==0 || strcmp(argv[2], "google-chrome")==0){
-                            if (argv[3]==NULL){
-                                if(( system("google-chrome google.com") )==0){
-                                    sys_ok();
-                                    printf("%s%s close \n", GRN, argv[2]);
-                                }
-                                else{
-                                    sys_error();
-                                }
-                                
-                            }                            
-                    }
-                    /*
-                     * if user want to open google in firefox 
-                     */
-                    else if (strcmp(argv[2], "firefox")==0){
-                            if (argv[3]==NULL){
-                                if(( system("firefox google.com") )==0){
-                                    sys_ok();
-                                    printf("%s%s close \n", GRN, argv[2]);
-                                    
-                                }
-                                else{
-                                    sys_error();
-                                }
-                                
-                            }                            
-                    }         
 }
 
