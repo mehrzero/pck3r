@@ -78,6 +78,8 @@ int main (int argc, char *argv[]){
   gtk_widget_realize (win);
   g_signal_connect (win, "destroy", gtk_main_quit, NULL);
 
+  /* icon for this window (installer) */
+  gtk_window_set_icon_from_file(GTK_WINDOW(win), "../icon/pck3r-logo.png", NULL);
   /* Create a vertical box with buttons */
   vbox = gtk_vbox_new (FALSE, 6);
   gtk_container_add (GTK_CONTAINER (win), vbox);
