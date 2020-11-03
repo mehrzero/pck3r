@@ -2,7 +2,7 @@
 
 
 
-# pck3r
+# pck3r : 
 
 ![Screenshot](screenshot/pck3r.png)
 
@@ -11,11 +11,15 @@ this program , create by amzy0(M.Amin azimi.K) this program , can change under G
 you can send me a pull request in github : https://github.com/amzy-0/pck3r and features will be added to pck3r soon ...
 good luck...
 
-# logo
+# logo :
 
-<pre>
+
   尸⼕长㇌尺
-</pre>
+
+#GUI logo : 
+
+![Screenshot](screenshot/icon/pck3r-logo.png)
+
 
 # help and  use
 
