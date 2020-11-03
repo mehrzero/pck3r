@@ -788,28 +788,54 @@ void google(int argc, char *argv[]){
     if (argv[2]==NULL){
         system("firefox google.com");
     }
+   
 
-    
 
     else if(argv[2] != NULL && argv[3] != NULL ){
         
-    
+  
         char searcher_do[2000] = {"\0"};
         char browser[100] = {"\0"};
         
 
          if (strcmp(argv[2], "chrome")==0){
+             strcat(searcher_do, "google-chrome ");
+            strcat(searcher_do, " https://www.google.com/search?q=");   
             
+        }
+ 
+         else if(strcmp(argv[2], "firefox")==0){
+
+            strcat(searcher_do, "firefox ");
+            strcat(searcher_do, " https://www.google.com/search?q=");   
+ 
+        }    
+
+         else if (strcmp(argv[2], "google-chrome")==0){
+
             strcat(searcher_do, "google-chrome ");
             strcat(searcher_do, " https://www.google.com/search?q=");   
-        }
+ 
 
-        else{                            
-            strcat(browser, argv[2]);
-            strcat(searcher_do, browser);
-            strcat(searcher_do, " ");
-            strcat(searcher_do, " https://www.google.com/search?q=");
-        }
+         }
+        
+         else if (strcmp(argv[2], "chromium")==0){
+
+            strcat(searcher_do, "chromium");
+            strcat(searcher_do, " https://www.google.com/search?q=");   
+ 
+
+         }
+        
+        else {
+            sys_error();
+            printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
+            return ;
+        }    
+ 
+ 
+                                  
+
 
         for (int i = 3; i < argc; i++){
             strcat(searcher_do, argv[i]);
@@ -817,19 +843,15 @@ void google(int argc, char *argv[]){
         
         }
 
-        if (( system(searcher_do) )==0){
-        
-            sys_ok();
-            printf("%s%s close \n", GRN, argv[2]);
-        
-        }
-        
+        if (( system(searcher_do) )==0){return;}
+      
         else{
             
             sys_error();
             
         }
-        
+                
+        printf("%s\n", searcher_do);       
         
     }
 
@@ -845,6 +867,8 @@ void google(int argc, char *argv[]){
                     
                     sys_error();
                     printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
+                    printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
+
                     printf("\nclose browser with : CTRL + Ws  ");
                 
                 }
@@ -864,6 +888,8 @@ void google(int argc, char *argv[]){
                 else{
                     sys_error();
                     printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
+                    printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
+
 
                 }
                 
@@ -874,8 +900,8 @@ void google(int argc, char *argv[]){
 
         sys_error();
         printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
+        printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
         printf("\nclose browser with : CTRL + Ws  ");
-
     }
 
 }
