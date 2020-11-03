@@ -16,24 +16,22 @@ good luck...
 
   尸⼕长㇌尺
 
-#GUI logo : 
+# GUI logo : 
 
-![Screenshot](screenshot/icon/pck3r-logo.png)
+![GUI logo](icon/pck3r-logo.png)
 
 
 # help and  use
 
-<pre>
------------------------------------------
-|                                       |
-| pck3r : It is a versatile program and |
-|                                       |
-| you avoid using useless commands and  |
-|                                       |
-| it is written for Ubuntu...           |
-|                                       |
------------------------------------------
-</pre>
+    -----------------------------------------
+    |                                       |
+    | pck3r : It is a versatile program and |
+    |                                       |
+    | you avoid using useless commands and  |
+    |                                       |
+    | it is written for Ubuntu...           |
+    |                                       |
+    -----------------------------------------
 
 
 
@@ -114,3 +112,8 @@ $ ./installer
 $ cd updator/
 
 $ ./updator
+
+# local running 
+
+$ cd bin/
+$ ./pck3r <commands>
