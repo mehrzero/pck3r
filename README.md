@@ -2,7 +2,7 @@
 
 
 
-# pck3r : 
+# pck3r :
 
 ![Screenshot](screenshot/pck3r.png)
 
@@ -16,7 +16,7 @@ good luck...
 
   尸⼕长㇌尺
 
-# GUI logo : 
+# GUI logo :
 
 ![GUI logo](icon/pck3r-logo.png)
 
@@ -36,7 +36,7 @@ good luck...
 
 
 "install" command :
-    
+
     $ pck3r install "somthing" :
     {
             nodejs,
@@ -48,12 +48,12 @@ good luck...
     }
 
 "clear" command :
-    
+
     $ pck3r clear:
     {clear your terminal }
 
-"iso" command : 
-    
+"iso" command :
+
     $ pck3r iso 32/64  "somthing":
     {
         mint,
@@ -63,18 +63,18 @@ good luck...
     }
 
 "dwn" command :
-    
+
     $ pck3r dwn "https/http://somthing"
     {dwn is downloader for pck3r }
 
-"sys" command : 
-    
-    $ pck3r sys update 
+"sys" command :
+
+    $ pck3r sys update
     (update your oprating system)
-    
+
     $ pck3r sys upgrade
     (upgrade your oprating system)
-    
+
     $ pck3r updgr
     (both, update and upgrade (full upgrade))
 
@@ -83,22 +83,23 @@ good luck...
     $ pck3r term
     (command for run, pck3r terminal emulator)
 
-"google" command : 
+"google" command :
 
 
     $pck3r google <browser> <search section(word1 word2 word3 ...)
     (quick google search ...)
     (like this : $ pck3r google firefox what is google search engine)
 
-"tilix" command : 
+"tilix" command :
 
 
     $ pck3r tilix
     (tilix terminal ...)
 
+    $ pck3r install dotnet
+    (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)    
 
-
-# install pck3r  global 
+# install pck3r  global
 
 
 $ cd install-pck3r-ubuntu/
@@ -106,14 +107,14 @@ $ cd install-pck3r-ubuntu/
 $ ./installer
 
 
-# update pck3r 
+# update pck3r
 
 
 $ cd updator/
 
 $ ./updator
 
-# local running 
+# local running
 
 $ cd bin/
 $ ./pck3r <commands>
