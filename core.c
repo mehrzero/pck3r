@@ -15,32 +15,27 @@
 #include <ctype.h>
 #include <sys/unistd.h>
 #include <string.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-
-/*
- *define zone (length of arrays)
- * 1-define ARG_LEN_HELP length for help
- * 2-define color
- */
+#include "includes/color.h"
 
 
-////////////////////////
-    //color zone
-////////////////////////
+ ////////////////////////
+     //color zone
+ ////////////////////////
 
-#define NRM  "\x1B[0m"
-#define RED  "\x1B[31m"
-#define GRN  "\x1B[32m"
-#define YEL  "\x1B[33m"
-#define BLU  "\x1B[34m"
-#define MAG  "\x1B[35m"
-#define CYN  "\x1B[36m"
-#define WHT  "\x1B[37m"
+ #define NRM  "\x1B[0m"
+ #define RED  "\x1B[31m"
+ #define GRN  "\x1B[32m"
+ #define YEL  "\x1B[33m"
+ #define BLU  "\x1B[34m"
+ #define MAG  "\x1B[35m"
+ #define CYN  "\x1B[36m"
+ #define WHT  "\x1B[37m"
 
-////////////////////////
-    //color zone ended
-////////////////////////
+ ////////////////////////
+     //color zone ended
+ ////////////////////////
+
+
 
 ////////////////////////
     //functions
@@ -59,12 +54,12 @@
     void wine_installer();
     void pck3r_help();
     void google(int argc, char *argv[]);
-
+    void  dot_net();
 
 ///////////////////////
 
 int main ( int argc , char *argv[],  char * envp []){
-    
+
     /*
      * int i ; (i variable , count of  for loop (for argv[index number(i)]))
      */
@@ -85,8 +80,8 @@ int main ( int argc , char *argv[],  char * envp []){
             if(argc == 1){
                 sys_error();
                 printf("%splease enter a command(after \"pck3r\").\nfor see the all command : $ pck3r help\n",RED);
-                
-                
+
+
             }
 
             /*
@@ -106,7 +101,7 @@ int main ( int argc , char *argv[],  char * envp []){
                     printf("%s", CYN);
                     system("sleep 2");
                     pck3r_help();
-                    sys_ok(); 
+                    sys_ok();
                     break;
             }
 
@@ -154,7 +149,7 @@ int main ( int argc , char *argv[],  char * envp []){
                     * || like this ($ pck3r install ohmyzsh )
                     */
                     ohmyzsh_installer();
-                    
+
                     break;
                 }
                 else if(strcmp(argv[2], "wine")==0){
@@ -164,7 +159,18 @@ int main ( int argc , char *argv[],  char * envp []){
                     * || like this ($ pck3r install ohmyzsh )
                     */
                     wine_installer();
-                    
+
+                    break;
+                }
+
+                else if(strcmp(argv[2], "dotnet")==0){
+
+                    /*
+                    * if argv[2] not null
+                    * || like this ($ pck3r install ohmyzsh )
+                    */
+                    dot_net();
+
                     break;
                 }
 
@@ -199,7 +205,7 @@ int main ( int argc , char *argv[],  char * envp []){
              */
 
             else if(strcmp(argv[1], "uninstall")==0){
-                    
+
                 /*
                  * if argv[2] is null
                  * like this ($ pck3r uninstall "\0")
@@ -223,7 +229,7 @@ int main ( int argc , char *argv[],  char * envp []){
                     if((system("sudo apt purge nodejs"))!=0){
                         sys_error();
                         break;
-                    }   
+                    }
                     else{
                         sys_ok();
                         printf("\n%s%s removed\n",GRN,argv[i]);
@@ -256,7 +262,7 @@ int main ( int argc , char *argv[],  char * envp []){
                         }
 
                         printf("package(s) : %s%s\n",CYN, finally_do);
-                        break;                    
+                        break;
                 }
             }
 
@@ -363,21 +369,21 @@ int main ( int argc , char *argv[],  char * envp []){
             }
 
             /*
-             * version 
+             * version
              */
 
             else if(strcmp(argv[1], "version")==0){
                 version();
                 puts("");
                 break;
-                
+
             }
 
             /*
-             * run terminal emulator 
+             * run terminal emulator
              * pck3r terminal [FILE : pck3r-terminal-emu]
-             * is very simple terminal 
-             * novice can use this ... 
+             * is very simple terminal
+             * novice can use this ...
              */
 
             else if(strcmp(argv[1], "term")==0){
@@ -391,21 +397,21 @@ int main ( int argc , char *argv[],  char * envp []){
                 }
                 else{
 
-                    sys_error(); 
+                    sys_error();
                     printf("pck3r-terminal-emu [FILE] not found !!\n");
                     printf("please update your pack3r...\n");
                 }
-                
+
                 break;
-                
+
             }
             else if(strcmp(argv[1], "google")==0){
                 google(argc, argv);
                 break;
             }
-            
+
             /* tilix command */
-            
+
             else if(strcmp(argv[1], "tilix")==0){
                 system("./pck3r-terminal-emu-tilix");
                 break;
@@ -515,7 +521,7 @@ void ohmyzsh_installer(){
         printf("%sZSH installed \n", GRN);
         system("zsh -V");
     }
-    
+
 
 }
 
@@ -586,7 +592,7 @@ void sys_updgr(){
          system("echo your machine architecture : ");
          system("uname -p");
          puts(WHT);
-         system("sudo apt autoremove");         
+         system("sudo apt autoremove");
      }
 
  }
@@ -632,14 +638,14 @@ void version(){
 }
 
 /*
- * 
- * wine installer function for install wine 
- * and use wine and install it, 
- * for your oprating system 
- * use this function and you can change function name, 
- * if you want to rename function, 
- * and change this code for your self ... 
- * 
+ *
+ * wine installer function for install wine
+ * and use wine and install it,
+ * for your oprating system
+ * use this function and you can change function name,
+ * if you want to rename function,
+ * and change this code for your self ...
+ *
  */
 
 void wine_installer(){
@@ -652,12 +658,12 @@ void wine_installer(){
                 sys_error();
                 return;
             }
-            
+
             else if(( system("sudo apt-key add winehq.key") )!=0){
                 sys_error();
                 return;
             }
-            
+
             else if(( system("sudo apt update && sudo apt full-upgrade -y"))!=0){
                 sys_error();
                 return;
@@ -668,7 +674,7 @@ void wine_installer(){
                 return;
             }
 
-            
+
             else if (( system("sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'"))!=0){
                 sys_error();
                 return;
@@ -677,7 +683,7 @@ void wine_installer(){
                 sys_error();
                 return;
             }
-            
+
             else if(( system("sudo apt update && sudo apt full-upgrade - y"))!=0){
                 sys_error();
                 return;
@@ -687,7 +693,7 @@ void wine_installer(){
                 sys_error();
                 return;
             }
-            
+
             else{
                 sys_ok();
                 printf("%sWine installed ! (18.04 and 20.04) ",GRN);
@@ -754,33 +760,37 @@ puts("\"term\" command :");
 puts("    $pck3r term");
 puts("    (command for run, pck3r terminal emulator)");
 puts("");
-puts("\"google\" command :"); 
+puts("\"google\" command :");
 puts("");
 puts("");
 puts("    $pck3r google <browser> <search section(word1 word2 word3 ...)");
 puts("    (quick google search ...)");
 puts("    (like this : $ pck3r google firefox what is google search engine)");
 puts("");
-puts("\"tilix\" command :"); 
+puts("\"tilix\" command :");
 puts("");
 puts("");
 puts("    $ pck3r tilix");
 puts("    (tilix terminal ...)");
+puts("");
+puts("");
+puts("    $ pck3r install dotnet");
+puts("    (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)");
 
 }
 
 /*
- * 
- * 
- * google function : 
- * quick google search 
- * this function concatenate all args 
- * and then 
+ *
+ *
+ * google function :
+ * quick google search
+ * this function concatenate all args
+ * and then
  * search all args to the google search engine
- * you can edit or costumize this code section for your self 
+ * you can edit or costumize this code section for your self
  * you must concatenate all agrs if you want to edit this code section
- * 
- * 
+ *
+ *
  */
 
 void google(int argc, char *argv[]){
@@ -788,71 +798,71 @@ void google(int argc, char *argv[]){
     if (argv[2]==NULL){
         system("firefox google.com");
     }
-   
+
 
 
     else if(argv[2] != NULL && argv[3] != NULL ){
-        
-  
+
+
         char searcher_do[2000] = {"\0"};
         char browser[100] = {"\0"};
-        
+
 
          if (strcmp(argv[2], "chrome")==0){
              strcat(searcher_do, "google-chrome ");
-            strcat(searcher_do, " https://www.google.com/search?q=");   
-            
+            strcat(searcher_do, " https://www.google.com/search?q=");
+
         }
- 
+
          else if(strcmp(argv[2], "firefox")==0){
 
             strcat(searcher_do, "firefox ");
-            strcat(searcher_do, " https://www.google.com/search?q=");   
- 
-        }    
+            strcat(searcher_do, " https://www.google.com/search?q=");
+
+        }
 
          else if (strcmp(argv[2], "google-chrome")==0){
 
             strcat(searcher_do, "google-chrome ");
-            strcat(searcher_do, " https://www.google.com/search?q=");   
- 
+            strcat(searcher_do, " https://www.google.com/search?q=");
+
 
          }
-        
+
          else if (strcmp(argv[2], "chromium")==0){
 
             strcat(searcher_do, "chromium");
-            strcat(searcher_do, " https://www.google.com/search?q=");   
- 
+            strcat(searcher_do, " https://www.google.com/search?q=");
+
 
          }
-        
+
         else {
             sys_error();
             printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
             return ;
-        }    
- 
- 
-                                  
+        }
+
+
+
 
 
         for (int i = 3; i < argc; i++){
             strcat(searcher_do, argv[i]);
             strcat(searcher_do, "+");
-        
+
         }
 
         if (( system(searcher_do) )==0){return;}
-      
+
         else{
-            
+
             sys_error();
-            
+
         }
-                
-        printf("%s\n", searcher_do);       
-        
+
+        printf("%s\n", searcher_do);
+
     }
 
 
@@ -864,26 +874,26 @@ void google(int argc, char *argv[]){
                     printf("%s%s close \n", GRN, argv[2]);
                 }
                 else{
-                    
+
                     sys_error();
                     printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
                     printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
 
-                    printf("\nclose browser with : CTRL + Ws  ");
-                
+                    printf("\nclose browser with : CTRL + W  ");
+
                 }
-                
-            }                            
+
+            }
     }
-    /*
-        * if user want to open google in firefox 
-        */
+     /*
+      * if user want to open google in firefox
+      */
     else if (strcmp(argv[2], "firefox")==0){
             if (argv[3]==NULL){
                 if(( system("firefox google.com") )==0){
                     sys_ok();
                     printf("%s%s closed \n", GRN, argv[2]);
-                    
+
                 }
                 else{
                     sys_error();
@@ -892,8 +902,8 @@ void google(int argc, char *argv[]){
 
 
                 }
-                
-            }                            
+
+            }
     }
 
     else {
@@ -901,8 +911,89 @@ void google(int argc, char *argv[]){
         sys_error();
         printf("$ pck3r google <browser> <search word(1)> <search word(2)> <search word(and more ...)>  ");
         printf("$ pck3r google <chrome(linked to -> google-chrome)/firefox/chromium> <search words>");
-        printf("\nclose browser with : CTRL + Ws  ");
+        printf("\nclose browser with : CTRL + W  ");
     }
 
 }
 
+/*
+ *
+ * Install the runtime
+ * The .NET Core Runtime allows you to run apps that were made with
+ * .NET Core that didn't include the runtime.
+ * The following commands install the ASP.NET Core Runtime,
+ * which is the most compatible runtime for .NET Core.
+ *
+ */
+
+void dot_net(){
+
+  if (( system("wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb") )!=0) {
+    sys_error();
+    printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+    return;
+  }
+
+  else if (( system("sudo dpkg -i packages-microsoft-prod.deb") )!=0) {
+    sys_error();
+    printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+    return;
+
+  }
+
+  else if (( system("sudo apt update") )!=0){
+    sys_error();
+    printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+    return;
+  }
+
+  else if (( system("sudo apt  install -y apt-transport-https") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if(( system("sudo apt  update") )){
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if (( system(" sudo apt  install -y dotnet-sdk-3.1") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if (( system("sudo apt  install -y aspnetcore-runtime-3.1") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if (( system("sudo apt  install -y dotnet-runtime-3.1") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if (( system("sudo apt install -y mono-complete") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else if (( system("sudo apt  update") )!=0) {
+      sys_error();
+      printf("%scan't install .NET (only for *UBUNTU 20.04 ) \n", RED);
+      return;
+    }
+
+    else{
+
+      sys_ok();
+      printf("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) installed \n", GRN );
+      return;
+
+    }
+}
