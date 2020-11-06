@@ -15,50 +15,10 @@
 #include <ctype.h>
 #include <sys/unistd.h>
 #include <string.h>
+#include "includes/requires.h"
 
 
-
- ////////////////////////
-     //color zone
- ////////////////////////
-
- #define NRM  "\x1B[0m"
- #define RED  "\x1B[31m"
- #define GRN  "\x1B[32m"
- #define YEL  "\x1B[33m"
- #define BLU  "\x1B[34m"
- #define MAG  "\x1B[35m"
- #define CYN  "\x1B[36m"
- #define WHT  "\x1B[37m"
-
- ////////////////////////
-     //color zone ended
- ////////////////////////
-
-
-
-////////////////////////
-    //functions
-////////////////////////
-
-    void updator();
-    void clear();
-    void node_installer();
-    void ohmyzsh_installer();
-    void sys_update();
-    void sys_upgrade();
-    void sys_updgr();
-    void sys_error();
-    void sys_ok();
-    void version();
-    void wine_installer();
-    void pck3r_help();
-    void google(int argc, char *argv[]);
-    void  dot_net();
-
-///////////////////////
-
-int main ( int argc , char *argv[],  char * envp []){
+int main ( int argc , char *argv[]){
 
     /*
      * int i ; (i variable , count of  for loop (for argv[index number(i)]))
@@ -187,6 +147,7 @@ int main ( int argc , char *argv[],  char * envp []){
                     if((system(apter))!=0){
                         sys_error();
                     }
+
                     else{
                         sys_ok();
                         printf("%s installed \n",finally_do);
@@ -254,7 +215,6 @@ int main ( int argc , char *argv[],  char * envp []){
                         strcat(apter, finally_do);
                         if((system(apter))!=0){
                             sys_error();
-                            printf("some error found !!");
                         }
                         else{
                             sys_ok();
@@ -419,6 +379,25 @@ int main ( int argc , char *argv[],  char * envp []){
 
             /*
              *
+             * if arg[1] == "pkg"
+             * wait for arg[2]
+             * valid args after "pkg" : <package name>
+             *
+             */
+
+            else if(strcmp(argv[1], "pkg")==0){
+
+              /*
+               * like this => $ pck3r pkg <package name>
+               */
+               pkg(argc, argv);
+               break;
+
+
+            }
+
+            /*
+             *
              * if command after pck3r not valid
              *
              */
@@ -513,6 +492,7 @@ void ohmyzsh_installer(){
     }
 
     else if(( system("sh -c \"$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)\"") )!=0){
+
         sys_error();
         return;
     }
@@ -773,9 +753,17 @@ puts("");
 puts("    $ pck3r tilix");
 puts("    (tilix terminal ...)");
 puts("");
+puts("\"dotnet\" command :");
+puts("");
 puts("");
 puts("    $ pck3r install dotnet");
 puts("    (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)");
+puts("");
+puts("\"pkg\" command :");
+puts("");
+puts("");
+puts("    $ pck3r pkg <package name>");
+puts("    (search for packages ...)");
 
 }
 
@@ -996,4 +984,37 @@ void dot_net(){
       return;
 
     }
+}
+
+void pkg(int argc, char *argv[]){
+    /*
+     * pkg use 'sudo apt search'
+     * and give many args for search
+     */
+   char pkg[2000] = "sudo apt search ";
+
+   if (argv[2]==NULL){
+     sys_error();
+     printf("%s\nAfter \"pkg\" is empty !\n", RED);
+    }
+
+    else if(argv[2]!=NULL){
+
+
+       for (int i = 2; i < argc; i++){
+           strcat(pkg, argv[i]);
+           strcat(pkg, " ");
+
+       }
+
+        if (( system(pkg) )!= 0 ) {
+
+          sys_error();
+          printf("%s%s\n", RED, argv[3] );
+        }
+
+        else{
+          system("echo \x1B[32m");
+        }
+     }
 }
