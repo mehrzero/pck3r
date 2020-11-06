@@ -35,6 +35,6 @@
  void pck3r_help();
  void google(int argc, char *argv[]);
  void dot_net();
- void searcher_packages(int argc, char *argv[]);
+ void pkg(int argc, char *argv[]);
 
 ///////////////////////
