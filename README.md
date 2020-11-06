@@ -109,6 +109,13 @@ $ ./preinstallRequirements.sh
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)    
 
 
+"pkg" command :
+
+
+    $ pck3r pkg <package name>"
+    (search for packages ...)"
+
+
 
 # install pck3r  global :
 
