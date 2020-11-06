@@ -21,7 +21,7 @@ good luck...
 ![GUI logo](icon/pck3r-logo.png)
 
 
-# help and  use
+# about pck3r :
 
     -----------------------------------------
     |                                       |
@@ -33,6 +33,15 @@ good luck...
     |                                       |
     -----------------------------------------
 
+
+compile all c file :
+
+$ make
+
+
+preinstall Requirements :
+
+$ ./preinstallRequirements.sh
 
 
 "install" command :
@@ -99,7 +108,9 @@ good luck...
     $ pck3r install dotnet
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)    
 
-# install pck3r  global
+
+
+# install pck3r  global :
 
 
 $ cd install-pck3r-ubuntu/
@@ -107,14 +118,16 @@ $ cd install-pck3r-ubuntu/
 $ ./installer
 
 
-# update pck3r
+# update pck3r :
 
 
-$ cd updator/
+$ cd updator-pck3r/
 
 $ ./updator
 
-# local running
+
+# local running :
 
 $ cd bin/
+
 $ ./pck3r <commands>
