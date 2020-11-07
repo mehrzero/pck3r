@@ -13,8 +13,7 @@ good luck...
 
 # logo :
 
-
-  尸⼕长㇌尺
+    尸⼕长㇌尺
 
 # GUI logo :
 
