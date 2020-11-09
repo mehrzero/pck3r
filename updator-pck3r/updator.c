@@ -13,36 +13,39 @@ static void Pck3r_update (GtkWidget *wid, GtkWidget *win){
 }
 
 static void update_pck3r (GtkWidget *wid, GtkWidget *win){
-    
+
     GtkWidget *dialog_after_update = NULL;
 
+    char *home = getenv("HOME");
+    char *here = getenv(".");
+    GtkWidget *dialog_after_install = NULL;
+    char icon_copy_path[1000] = {"\0"};
     system(".././source-updator-for-dev");
     system("pwd");
-    system("sudo cp -r ../bin/pck3r .");
-    system("sudo cp -r ../bin/pck3r-terminal-emu .");
-    system("sudo cp -r ../bin/pck3r-terminal-emu-tilix .");
-    
+    system("sudo cp -r ../bin/pck3r* .");
+    strcat(icon_copy_path, "sudo cp -r ../icon/pck3r-logo.png  ");
+    strcat(icon_copy_path, home);
+    strcat(icon_copy_path, "/.pck3r-GUI");
+    system("pwd");
+    system("mkdir -p  ~/.pck3r-GUI");
 
+    system(icon_copy_path );
     system("sudo cp -r ./pck3r /bin/");
     system("echo pck3r copied ...");
-
     system("sudo cp -r ./pck3r-terminal-emu /bin");
     system("echo pak3r-terminal-emu  copied ...");
-    
     system("sudo cp -r ./pck3r-terminal-emu-tilix /bin");
     system("echo pak3r-terminal-emu-tilix copied ...");
-    
     system("echo pck3r dependences ...");
-    // add (-y)
     system("sudo apt install wget -y");
     system("sudo apt install curl -y");
     system("sudo apt install libreadline-dev -y");
     system("sudo apt install libgtk-3-dev -y");
     system("sudo apt install libvte-2.91-0 -y");
-    system("sudo rm -r  pck3r-terminal* pck3r ");
-
+    system("sudo rm -r  pck3r*");
     system("echo pck3r updated !!!!!");
     system("sleep 5");
+
     dialog_after_update = gtk_message_dialog_new (GTK_WINDOW (win), GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_CLOSE,
     "Pck3r installed!\n");
     gtk_window_set_position (GTK_WINDOW (dialog_after_update), GTK_WIN_POS_CENTER);
@@ -58,7 +61,7 @@ int main (int argc, char *argv[]){
   * for copy all executable file to /bin
   *
   */
-  system("sudo su  ./installer");
+  system("sudo su  ./updator");
   system("clear");
   GtkWidget *button = NULL;
   GtkWidget *label = NULL;
@@ -83,12 +86,15 @@ int main (int argc, char *argv[]){
 
 
   /* icon for this window (installer) */
-  gtk_window_set_icon_from_file(GTK_WINDOW(win), "../icon/pck3r-logo.png", NULL);
-
+  char path[1000] = {"\0"};
+  char *home = getenv("HOME");
+  strcat(path, home);
+  strcat(path, "/.pck3r-GUI/pck3r-logo.png");
+  gtk_window_set_icon_from_file(GTK_WINDOW(win),path, NULL);
 
   /*
    *
-   * Create a vertical box with buttons 
+   * Create a vertical box with buttons
    *
    */
 
@@ -100,7 +106,7 @@ int main (int argc, char *argv[]){
    */
   gtk_window_set_default_size(GTK_WINDOW(win), 400, 300);
   gtk_window_set_resizable (GTK_WINDOW(win), FALSE);
-  
+
   /*
    * update btn with signal
    */
@@ -108,20 +114,20 @@ int main (int argc, char *argv[]){
   button = gtk_button_new_with_label("update pck3r");
   g_signal_connect (G_OBJECT (button), "clicked", G_CALLBACK (update_pck3r), (gpointer) win);
   gtk_box_pack_start (GTK_BOX (vbox), button, TRUE, FALSE, 0);
-  
+
   /*
    * infomation btn with signal
    */
-  
+
   button = gtk_button_new_from_stock (GTK_STOCK_DIALOG_INFO);
   g_signal_connect (G_OBJECT (button), "clicked", G_CALLBACK (Pck3r_update), (gpointer) win);
   gtk_box_pack_start (GTK_BOX (vbox), button, TRUE, FALSE, 0);
 
-    
+
   /*
    * close btn with signal
    */
-  
+
   button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
   g_signal_connect (button, "clicked", gtk_main_quit, NULL);
   gtk_box_pack_start (GTK_BOX (vbox), button, TRUE, FALSE, 0);
@@ -130,5 +136,5 @@ int main (int argc, char *argv[]){
   gtk_widget_show_all (win);
   gtk_main ();
   return 0;
-  
+
 }
