@@ -560,8 +560,9 @@ void sys_upgrade(){
  */
 
 void sys_updgr(){
-     if(system("sudo apt update && sudo apt full-upgrade")!=0){
+     if(( system("sudo apt update && sudo apt full-upgrade") )!=0){
          sys_error();
+	 return;
      }
      else{
          sys_ok();
@@ -573,6 +574,7 @@ void sys_updgr(){
          system("uname -p");
          puts(WHT);
          system("sudo apt autoremove");
+	 return;
      }
 
  }
@@ -614,7 +616,7 @@ void sys_ok(){
 
 void version(){
     puts(GRN);
-    printf("version : 1.0\nCreator : amzy-0(M.Amin Azimi .K)\n");
+    printf("version : 1.4\nCreator : amzy-0(M.Amin Azimi .K)\n");
 }
 
 /*
@@ -664,12 +666,12 @@ void wine_installer(){
                 return;
             }
 
-            else if(( system("sudo apt update && sudo apt full-upgrade - y"))!=0){
+            else if(( system("sudo apt update && sudo apt full-upgrade -y"))!=0){
                 sys_error();
                 return;
             }
 
-            else if(( system("sudo apt install --install-recommends winehq-stable"))!=0){
+            else if(( system("sudo apt install -y wine-stable"))!=0){
                 sys_error();
                 return;
             }
