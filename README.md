@@ -104,6 +104,9 @@ $ ./preinstallRequirements.sh
     $ pck3r tilix
     (tilix terminal ...)
 
+
+"dotnet" command : 
+
     $ pck3r install dotnet
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)    
 
