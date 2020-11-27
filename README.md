@@ -33,14 +33,16 @@ good luck...
     -----------------------------------------
 
 
-compile all c file :
+# compile all c file :
 
 $ make
 
 
-preinstall Requirements :
+*preinstall Requirements :*
+
 
 $ ./preinstallRequirements.sh
+
 
 
 "install" command :
