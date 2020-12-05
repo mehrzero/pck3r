@@ -33,6 +33,37 @@ good luck...
     -----------------------------------------
 
 
+# tree of the pck3r project :
+        
+
+
+            pck3r/
+            ├── bin
+            │   ├── pck3r
+            │   ├── pck3r-terminal-emu
+            │   └── pck3r-terminal-emu-tilix
+            ├── core.c
+            ├── icon
+            │   └── pck3r-logo.png
+            ├── includes
+            │   └── requires.h
+            ├── install-pck3r-ubuntu
+            │   ├── installer
+            │   └── installer.c
+            ├── LICENSE
+            ├── Makefile
+            ├── pck3r-terminal-emu.c
+            ├── pck3r-terminal-emu-tilix.c
+            ├── preinstallRequirements.sh
+            ├── README.md
+            ├── screenshot
+            │   └── pck3r.png
+            ├── source-updator-for-dev
+            └── updator-pck3r
+                ├── updator
+                └── updator.c
+
+
 # compile all c file :
 
 $ make
