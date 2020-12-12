@@ -20,17 +20,12 @@
 
 int main ( int argc , char *argv[]){
 
-    /*
-     * int i ; (i variable , count of  for loop (for argv[index number(i)]))
-     */
-
-    int i;
 
     /*
      * for loop for getting args
      */
 
-	for ( i = 0 ; i < argc ; i++ ){
+	for ( int i = 0 ; i < argc ; i++ ){
 
             /*
              * if after pck3r is empty (no args)
@@ -136,8 +131,11 @@ int main ( int argc , char *argv[]){
 
                 else{
                     i=2;
-                    char apter[1000] = "sudo apt install ";
-                    char finally_do[1000] = {"\0"};
+                    char *apter = malloc(1000*sizeof(char));
+                    char *finally_do  = malloc(1000*sizeof(char));
+
+                    strcat(apter, "sudo apt install ");
+
                     while (argv[i]!=NULL){
                         strcat(finally_do, argv[i]);
                         strcat(finally_do, " ");
@@ -154,6 +152,8 @@ int main ( int argc , char *argv[]){
                     }
 
                     printf("package(s) : %s%s\n",CYN, finally_do);
+                    free(apter);
+                    free(finally_do);
                     break;
 
                 }
@@ -205,8 +205,10 @@ int main ( int argc , char *argv[]){
                 else if(argv[2]!=NULL){
                     printf("%sremoving %s !\n",YEL, argv[2]);
                         i=2;
-                        char apter[1000] = "sudo apt purge ";
-                        char finally_do[1000] = {"\0"};
+                        char *apter = malloc(1000*sizeof(char));
+                        char *finally_do = malloc(1000*sizeof(char));
+                        strcat(apter, "sudo apt purge ");
+
                         while (argv[i]!=NULL){
                             strcat(finally_do, argv[i]);
                             strcat(finally_do, " ");
@@ -222,6 +224,8 @@ int main ( int argc , char *argv[]){
                         }
 
                         printf("package(s) : %s%s\n",CYN, finally_do);
+                        free(apter);
+                        free(finally_do);
                         break;
                 }
             }
@@ -308,9 +312,12 @@ int main ( int argc , char *argv[]){
                  */
 
                 else if (argv[2]!=NULL){
-                    char link[2000] = "wget ";
+
+                    char *link = malloc(2000*sizeof(char));
+                    strcat(link, "wget ");
+
                     strcat(link, argv[2]);
-                    if(( system(link) )!=0){
+                    if(( system(link) )!= 0){
                         sys_error();
                     }
 
@@ -323,6 +330,7 @@ int main ( int argc , char *argv[]){
                         system("pwd");
                     }
 
+                    free(link);
                 }
 
                 break;
@@ -491,15 +499,34 @@ void ohmyzsh_installer(){
         return;
     }
 
-    else if(( system("sh -c \"$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)\"") )!=0){
+    else if(( system("git clone https://github.com/ohmyzsh/ohmyzsh") )!=0){
 
         sys_error();
         return;
     }
     else{
-        sys_ok();
-        printf("%sZSH installed \n", GRN);
-        system("zsh -V");
+        if(( chdir("ohmyzsh") )!=0){
+            sys_error();
+            printf("\"ohmyzsh\" directory not found !\n");
+            return;
+
+        }
+        else if(( chdir("tools") )!=0){
+            sys_error();
+            printf("\"ohmyzsh/tools\" not found !\n");
+            return;
+        }
+
+        else if(( system("./install.sh") )==0 ){
+
+            sys_ok();
+            printf("%sZSH installed \n", GRN);
+            system("tree ohmyzsh");
+            puts("Scheme of \"ohmyzsh\" directory ! ");
+            return;
+        }
+
+
     }
 
 
@@ -794,15 +821,13 @@ void google(int argc, char *argv[]){
     else if(argv[2] != NULL && argv[3] != NULL ){
 
 
-        char searcher_do[2000] = {"\0"};
-        char browser[100] = {"\0"};
-
+        char *searcher_do = malloc(1000*sizeof(char));
+        char *browser = malloc(100*sizeof(char));
 
          if (strcmp(argv[2], "chrome")==0){
-             strcat(searcher_do, "google-chrome ");
+            strcat(searcher_do, "google-chrome ");
             strcat(searcher_do, " https://www.google.com/search?q=");
-
-        }
+         }
 
          else if(strcmp(argv[2], "firefox")==0){
 
@@ -852,7 +877,8 @@ void google(int argc, char *argv[]){
         }
 
         printf("%s\n", searcher_do);
-
+        free(searcher_do);
+        free(browser);
     }
 
 
@@ -993,7 +1019,9 @@ void pkg(int argc, char *argv[]){
      * pkg use 'sudo apt search'
      * and give many args for search
      */
-   char pkg[2000] = "sudo apt search ";
+
+   char *pkg = malloc(2000 * sizeof(char));
+   strcat(pkg, "sudo apt search ");
 
    if (argv[2]==NULL){
      sys_error();
@@ -1019,4 +1047,5 @@ void pkg(int argc, char *argv[]){
           system("echo \x1B[32m");
         }
      }
+     free(pkg);
 }
