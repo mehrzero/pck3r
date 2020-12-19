@@ -132,7 +132,7 @@ $ ./preinstallRequirements.sh
 
     $pck3r google <browser> <search section(word1 word2 word3 ...)
     (quick google search ...)
-    (like this : $ pck3r google firefox what is google search engine)
+    (like this : $ pck3r google firefox word1 word2 word3 to wordX)
 
 "tilix" command :
 
