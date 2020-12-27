@@ -35,3 +35,6 @@ installer: $(SOURCEINSTALL)installer.c
 
 updator: $(SOURCEUPDATE)updator.c
 		${CC}   $(SOURCEUPDATE)updator.c     ${GTKFLAGS} -o $(SOURCEUPDATE)/updator
+		
+install:
+		./${SOURCEINSTALL}/installer
