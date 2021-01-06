@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 from libs import stuff
-from os import getcwd, getenv, chdir
+from os import  getcwd, getenv, chdir
 from os import system as syscall
-syscall("sudo apt install python3-tk") 
-syscall("sudo apt install python3-pil python3-pil.imagetk")
 from tkinter import *
 from tkinter.ttk import *
 import time
 from PIL import ImageTk,Image
+
+
+syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")
+syscall("sudo apt install python3-tk") 
+syscall("sudo apt install python3-pil python3-pil.imagetk")
 
 # creating tkinter window
 root = Tk()
@@ -37,8 +40,9 @@ def bar():
 
 
 
-
-    syscall("mkdir ~/.pck3r") if (syscall("echo %s ; ls ~/.pck3r" % stuff.CYN)) !=0 else print("%sCopy all pck3r directory %s" %(stuff.CYN, stuff.NRM))
+    
+    syscall("rm -rf ~/.pck3r") if (syscall("echo %s ; ls ~/.pck3r" % stuff.CYN)) ==0 else print("%sCopy all pck3r directory %s" %(stuff.CYN, stuff.NRM))
+    syscall("mkdir ~/.pck3r")
     syscall("cp -rf . ~/.pck3r")
     progress["value"] = 50
     root.update_idletasks()
@@ -57,28 +61,25 @@ def bar():
     progress["value"] = 100
 
     print("%s%sPck3r installed successfuly %s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
+    # user theme and window configuration
     root.quit()
 
 
-# user theme and window configuration
-root.title("Pck3r Installer")
+# packing to main window (panel)
 icon = Image.open("%s/.pck3r/icon/pck3r-logo.png" % getenv("HOME"))
+root.title("Pck3r Installer")
 photo = ImageTk.PhotoImage(icon)
 root.wm_iconphoto(False, photo)
-
-
 root.geometry("300x80")
 root.configure(background="black")
-
 root.resizable(False, False)
 root.style = Style()
 root.style.theme_use("alt")
-
-
-# packing to main window (panel)
-
 progress.pack(fill="x", pady = 10)
 Button(root, text="install pck3r (system wide) ", command = bar).pack(fill="x", pady = 10)
 
+
+
 # infinite loop
 mainloop()
+
