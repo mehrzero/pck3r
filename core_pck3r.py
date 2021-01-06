@@ -68,6 +68,7 @@ for i in range(argc):
 
                 elif argv[2] == "dotnet" and argc==3:
                     dotnet.install_dotnet()
+                    
                 elif argv[2] == "ohmyzsh" and argc==3:
                     syscall("sudo apt install zsh curl")
                     syscall("sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"") if (syscall("curl --version")) == 0 else syscall("echo \"curl\" is required for using \"ohMyZsh\" ; sudo apt install curl")
