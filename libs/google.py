@@ -35,7 +35,7 @@ else:
     # only  user want google.com 
     def only_google_com(browser):
     
-        print(browser)
+        
         if browser == "google-chrome": 
 
             syscall("%s google.com" % browser) if (syscall("whereis google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (sysErorr(), RED, NRM))
