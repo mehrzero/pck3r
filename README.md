@@ -33,51 +33,21 @@ good luck...
     -----------------------------------------
 
 
-# tree of the pck3r project :
-        
 
 
-            pck3r/
-            ├── bin
-            │   ├── pck3r
-            │   ├── pck3r-terminal-emu
-            │   └── pck3r-terminal-emu-tilix
-            ├── core.c
-            ├── icon
-            │   └── pck3r-logo.png
-            ├── includes
-            │   └── requires.h
-            ├── install-pck3r-ubuntu
-            │   ├── installer
-            │   └── installer.c
-            ├── LICENSE
-            ├── Makefile
-            ├── pck3r-terminal-emu.c
-            ├── pck3r-terminal-emu-tilix.c
-            ├── preinstallRequirements.sh
-            ├── README.md
-            ├── screenshot
-            │   └── pck3r.png
-            ├── source-updator-for-dev
-            └── updator-pck3r
-                ├── updator
-                └── updator.c
+
+# system wide installation :
 
 
-# compile all c file :
-
-$ make
+*for system wide installation :*
 
 
-*preinstall Requirements :*
-
-
-$ ./preinstallRequirements.sh
+$ ./install.py
 
 
 
 
-
+# pck3r commands
 
 "install" command :
 
@@ -141,7 +111,7 @@ $ ./preinstallRequirements.sh
     (tilix terminal ...)
 
 
-"dotnet" command : 
+"dotnet" command :
 
     $ pck3r install dotnet
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)    
@@ -152,27 +122,3 @@ $ ./preinstallRequirements.sh
 
     $ pck3r pkg <package name>"
     (search for packages ...)"
-
-
-
-# install pck3r  global :
-
-
-$ cd install-pck3r-ubuntu/
-
-$ ./installer
-
-
-# update pck3r :
-
-
-$ cd updator-pck3r/
-
-$ ./updator
-
-
-# local running :
-
-$ cd bin/
-
-$ ./pck3r <commands>
