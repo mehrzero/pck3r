@@ -45,7 +45,7 @@ def install_dotnet():
 
 
 
-    elif (syscall("sudo apt  updat")) != 0:
+    elif (syscall("sudo apt  update")) != 0:
         sysErorr()
         print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% RED)
 
