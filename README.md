@@ -122,3 +122,12 @@ $ ./install.py
 
     $ pck3r pkg <package name>"
     (search for packages ...)"
+
+"update" command :
+
+
+    $ pck3r update
+    (update to last release from github.com/amzy-0/pck3r)
+
+
+
