@@ -39,11 +39,9 @@ for i in range(argc):
             
             # pck3r updator
             elif argv[1] == "update" and argc == 2:
-                if (syscall("~/.pck3r/./source-updator-for-dev")) == 0:
-                    
-                    print("%s%spck3r updated (~/.pck3r)%s" %(stuff.sysOk(), stuff.GRN, stuff.NRM))
-                else : 
-                    print("%s%sUpdate error !\nCheck ~/.pck3r directory%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                chdir("%s/.pck3r" % getenv("HOME"))
+                print("%s/.pck3r/./source-updator-for-dev"  % getenv("HOME"))
+                syscall("./source-updator-for-dev")
 
             # if argument 1 equal to "help"
             # like -> $ pck3r help
