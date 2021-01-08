@@ -192,32 +192,41 @@ for i in range(argc):
             elif argv[1] == "sys" and argc > 2:
                 if argv[2]=="update" and argc==3:
                     syscall("sudo apt update")
-                    print("%s%s\nYour oprating system is upgrade%s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
+                    print("%s%s\nYour oprating system updated%s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
 
                 # if user command, equal to $ pck3r sys upgrade
                 #do :
                 elif argv[2] == "upgrade" and argc==3:
-                    syscall("sudo apt full-upgrade")
-                    print("%s%syour oprating system is upgraded" % (stuff.sysOk(), stuff.GRN))
-                    syscall("echo %s" % stuff.GRN)
-                    syscall("echo your oprating system information :")
-                    syscall("uname -a ")
-                    syscall("echo your machine architecture : ")
-                    syscall("uname -p")
-                    syscall("echo %s" % stuff.NRM)
+                    
+                    if (syscall("sudo apt full-upgrade")) == 0:
+                        print("%s%syour oprating system  upgraded" % (stuff.sysOk(), stuff.GRN))
+                        syscall("echo %s" % stuff.GRN)
+                        syscall("echo your oprating system information :")
+                        syscall("uname -a ")
+                        syscall("echo your machine architecture : ")
+                        syscall("uname -p")
+                        syscall("echo %s" % stuff.NRM)
+                    
+                    else:
+                        print(f"{stuff.sysErorr()}{stuff.RED}{stuff.NRM}")
 
                 # if user command, equal to $ pck3r sys updgr
                 #do :
                 elif argv[2] == "updgr" and argc==3:
-                    syscall("sudo apt update && apt full-upgrade")
-                    print("%s%syour oprating system is upgraded" % (stuff.sysOk(), stuff.GRN))
-                    syscall("echo %s" % stuff.GRN)
-                    syscall("echo your oprating system information :")
-                    syscall("uname -a ")
-                    syscall("echo your machine architecture : ")
-                    syscall("uname -p")
-                    syscall("echo %s" % stuff.NRM)
-
+                    
+                    if (syscall("sudo apt update && apt full-upgrade")) ==0:
+                            
+                        print("%s%syour oprating system updated and upgraded" % (stuff.sysOk(), stuff.GRN))
+                        syscall("echo %s" % stuff.GRN)
+                        syscall("echo your oprating system information :")
+                        syscall("uname -a ")
+                        syscall("echo your machine architecture : ")
+                        syscall("uname -p")
+                        syscall("echo %s" % stuff.NRM)
+                    
+                    else:
+                        print(f"{stuff.sysErorr()}{stuff.RED}{stuff.NRM}")
+                
                 # if command is not a valid one !
                 # will send an error to the user.
                 # do :
