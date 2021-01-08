@@ -83,3 +83,56 @@ def install_dotnet():
     else:
         sysOk()
         print("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) installed  "% GRN )
+
+def uninstall_dotnet():
+    if (syscall("sudo apt update")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall("sudo apt purge  -y apt-transport-https")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall("sudo apt  update")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall(" sudo apt purge  -y dotnet-sdk-3.1")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall("sudo apt purge  -y aspnetcore-runtime-3.1")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall("sudo apt purge  -y dotnet-runtime-3.1")) != 0:
+        sysErorr()
+        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% RED)
+
+
+
+    elif (syscall("sudo apt purge  -y mono-complete")) != 0:
+        sysErorr()
+        print("%scan't remove .NET (only for *UBUNTU 20.04 )  "% RED)
+
+
+
+    elif (syscall("sudo apt  update && sudo apt full-upgrade ; sudo apt autoremove -y")) != 0:
+        sysErorr()
+        print("%scan't remove .NET (only for *UBUNTU 20.04 )  "% RED)
+
+
+    else:
+        sysOk()
+        print("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) reomved  "% GRN )
+

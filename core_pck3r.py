@@ -93,6 +93,11 @@ for i in range(argc):
                 # if after "uninstall" is empty
                 if argv[1] == "uninstall" and argc <= 2:
                     print("%s %sAfter \"uninstall\" is empty !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                
+                # if user want uninstall dotnet 
+                # do :
+                elif argv[2]=="dotnet" and argc==3:
+                    dotnet.uninstall_dotnet()
 
                 # argument 2 is not empty
                 # do :
