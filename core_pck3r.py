@@ -218,7 +218,7 @@ for i in range(argc):
                 #do :
                 elif argv[2] == "updgr" and argc==3:
                     
-                    if (syscall("sudo apt update && apt full-upgrade")) ==0:
+                    if (syscall("sudo apt update && sudo apt full-upgrade")) ==0:
                             
                         print("%s%syour oprating system updated and upgraded" % (stuff.sysOk(), stuff.GRN))
                         syscall("echo %s" % stuff.GRN)
