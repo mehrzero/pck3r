@@ -1,17 +1,21 @@
 #!/usr/bin/python3
-"""
 
-this program created for novice in GNU/Linux
-can handle almost things in Ubuntu and ...
-and all distributions  based on  Debian  ...
-this program , create by amzy0(M.Amin Azimi.K)
-and can be change under GPL3 license ...
-you can send me a pull request in github :
-https"//github.com/amzy-0/pck3r
-or send me your IDEA at :
-amzy0zone@gmail.com
-good luck
+""" 
+
+Short description of this Python module.
+Longer description of this module.
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <http://www.gnu.org/licenses/>.
+
 """
+__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 from os import system as syscall
 from os import getenv, getcwd, chdir
