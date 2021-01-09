@@ -21,15 +21,15 @@ __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-
 from libs import stuff
 from os import  getcwd, getenv, chdir
 from os import system as syscall
+syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")
+syscall("sudo apt install python3-tk") 
+syscall("sudo apt install python3-pil python3-pil.imagetk")
 from tkinter import *
 from tkinter.ttk import *
 import time
 from PIL import ImageTk,Image
 
 
-syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")
-syscall("sudo apt install python3-tk") 
-syscall("sudo apt install python3-pil python3-pil.imagetk")
 
 # creating tkinter window
 root = Tk()
