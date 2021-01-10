@@ -34,19 +34,18 @@ int main(){
 	start_install();
 	chdir(HOME);
 	string path=HOME;
-	system("sudo apt update && sudo apt full-upgrade");//update and upgrade (full upgrade)
+	system("sudo apt update && sudo apt full-upgrade -y");//update and upgrade (full upgrade)
 	system("sleep 3");cout<<YEL<<endl<<"next"<<WHT<<endl;//sleep system
 	/* (install openjfx) * (install openjdk-8-jre)*/
 	system("sudo apt install openjfx -y && sudo apt install openjdk-8-jre -y");	
 	system("sleep 3");cout<<YEL<<endl<<"next"<<WHT<<endl;//sleep system
 	if((Tlauncher())!=0){/* TLAUNCHER install */
-		cout<<RED<<"The operation was a failure\n*There is a problem\n"<<"Tlauncher not found !";	   
+		cout<<RED<<"The operation was a failure\n"<<"Tlauncher not found !\n";	   
 		return 0;
 	}
 	else{
-		cout<<GRN<<path+"/.TLauncher-2.75.jar";
+		cout<<sys_ok() <<  GRN<<path+"/.TLauncher-2.75.jar\n"<<"Please try : \n$ pck3r minecraft\n";
 	}
-	system("sleep 3");cout<<YEL<<endl<<"next"<<WHT<<endl;//sleep system
-	system("sudo java -jar .TLauncher*;");//run Tlancher
+	
 	return 0;
 }

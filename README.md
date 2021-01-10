@@ -123,6 +123,7 @@ $ ./install.py
     $ pck3r pkg <package name>"
     (search for packages ...)"
 
+
 "update" command :
 
 
@@ -131,3 +132,8 @@ $ ./install.py
 
 
 
+"minecraft" command :
+
+
+    $ pck3r minecraft
+    (minecraft runner)

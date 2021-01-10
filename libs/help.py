@@ -36,17 +36,7 @@ if __name__ == "__main__":
     $ python3 core_pck3r.py
     OR
     $ python3 installer.py
-    OR
-    $ chmod 755 core_pck3r.py ; ./core_pck3r.py
-    And for installing :
-    $ chmod 755 installer.py ; ./installer.py
-    """ % RED)
-
-else:
-    print("""%s
------------------------------------------
-|                                       |
-| pck3r : It is a versatile program and |
+    ORl openjdk-8-jr
 |                                       |
 | you avoid using useless commands and  |
 |                                       |
@@ -63,6 +53,7 @@ else:
             java,
             wine,
             ohmyzsh,
+            minecraft,
             or ...
     }
 
@@ -97,7 +88,10 @@ else:
     $ pck3r updgr
     (both, update and upgrade (full upgrade))
 
+
 \"term\" command :
+
+
     $pck3r term
     (command for run, pck3r terminal emulator)
 
@@ -127,6 +121,15 @@ else:
     (search for packages ...)
 
 \"update\" command :
+
+
     $ pck3r update
     (update to last release from github.com/amzy-0/pck3r)
+    
+\"minecraft\" command :
+
+
+    $ pck3r minecraft
+    (minecraft runner)
+
     """ % YEL)

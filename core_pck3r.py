@@ -250,14 +250,21 @@ for i in range(argc):
             # if after "pkg" is not empty
             elif argv[1] == "pkg" and argc >= 2:
 
-
                 # if after "pkg" isn't empty
                 if argv[2:] != [] and argc >= 2:
                     syscall("sudo apt search %s" % " ".join(argv[2:]))
-
-                
-            # if comamnd not a valid command in pck3r
-            # do :
+            
+            elif argv[1] == "minecraft" and argc ==2:
+                    if (syscall("ls ~/.TLauncher-2.75.jar"))==0:
+                            print("%s%sRunning minecraft...%s" %(stuff.sysOk() , stuff.GRN, stuff.NRM))
+                            syscall("sudo java -jar ~/.TLauncher-2.75.jar")
+                    else:
+                        print("%s%sCan't running minecraft  !\ncheck this path : %s/.TLauncher-2.75.jar\n%s"%(stuff.sysErorr(), stuff.RED, getenv("HOME"), stuff.NRM))
+            
+            
+            # if command not valid 
+            # print :
+            # and breaking any operation  
             else:
                 print("%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s" %  (stuff.sysErorr(), stuff.RED, stuff.CYN, stuff.NRM))
 
