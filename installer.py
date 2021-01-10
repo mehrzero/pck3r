@@ -22,8 +22,9 @@ from libs import stuff
 from os import  getcwd, getenv, chdir
 from os import system as syscall
 syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")
-syscall("sudo apt install python3-tk") 
-syscall("sudo apt install python3-pil python3-pil.imagetk")
+syscall("sudo apt install python3-tk -y") 
+syscall("sudo apt install python3-pil python3-pil.imagetk -y")
+syscall("sudo apt install g++ -y")
 from tkinter import *
 from tkinter.ttk import *
 import time
