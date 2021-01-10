@@ -75,11 +75,6 @@ $ ./install.py
         or ...
     }
 
-"dwn" command :
-
-    $ pck3r dwn "https/http://somthing"
-    {dwn is downloader for pck3r }
-
 "sys" command :
 
     $ pck3r sys update
