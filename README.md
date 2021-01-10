@@ -54,7 +54,7 @@ $ ./install.py
     $ pck3r install "somthing" :
     {
             nodejs,
-            python3pip,
+            minecraft,
             java,
             wine,
             ohmyzsh,
