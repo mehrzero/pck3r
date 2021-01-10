@@ -44,7 +44,7 @@ int main(){
 		return 0;
 	}
 	else{
-		sys_ok();
+		
 		cout<< GRN<<path+"/.TLauncher-2.75.jar\n"<<"Please try : \n$ pck3r minecraft\n";
 	}
 	
