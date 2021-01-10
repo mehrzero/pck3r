@@ -83,7 +83,13 @@ for i in range(argc):
                     syscall("sudo apt install zsh curl")
                     syscall("sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"") if (syscall("curl --version")) == 0 else syscall("echo \"curl\" is required for using \"ohMyZsh\" ; sudo apt install curl")
 
+                elif argv[2] == "minecraft" and argc==3:
+                    chdir("%s/.pck3r" % getenv("HOME"))
+                    syscall("g++ minecraft-pck3r.cpp -o  minecraft")
+                    syscall("./minecraft")
+                    
                 # argument 2 is not empty
+
                 elif argv[2:] != [] and argc >= 2:
                     print("%s%s\nCommand is valid!\n%s" % (stuff.sysOk(), stuff.GRN, stuff.YEL))
                     syscall("sudo apt install %s" % " ".join(argv[2:]))
