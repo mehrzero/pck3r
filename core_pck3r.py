@@ -44,8 +44,8 @@ for i in range(argc):
             # pck3r updator
             elif argv[1] == "update" and argc == 2:
                 chdir("%s/.pck3r" % getenv("HOME"))
-                print("%s/.pck3r/./source-updator-for-dev"  % getenv("HOME"))
-                syscall("./source-updator-for-dev")
+                print("%s/.pck3r/./updator"  % getenv("HOME"))
+                syscall("./updator")
 
             # if argument 1 equal to "help"
             # like -> $ pck3r help
