@@ -123,4 +123,4 @@ if __name__ == "__main__":
     $ pck3r minecraft
     (minecraft runner)
 
-    """ % stuff.YEL)
+    """ % YEL)
