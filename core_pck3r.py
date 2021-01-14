@@ -30,7 +30,7 @@ for i in range(argc):
 
         # if user just type $ pck3r
         if argc <= 1:
-            print("%s%sNo arguments\nPlease try :\n$ pck3r <commands>\nOR\n$ pck3r help %s" % (stuff.sysErorr(), stuff.RED, stuff.NRM))
+            print("%s%sNo arguments\nPlease try :\n$ pck3r <commands>\nOR\n$ pck3r help %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
         else:
 
@@ -60,7 +60,7 @@ for i in range(argc):
 
                 # if after install is empty
                 if argv[1]== "install" and argc <= 2:
-                    print("%s%sAfter \"install\" is empty !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                    print("%s%sAfter \"install\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 # if argument 2 is nodejs
                 elif argv[2]=="nodejs" and argc==3:
@@ -74,7 +74,7 @@ for i in range(argc):
 
                         # Exception
                     else:
-                        print("%s%sInstallation breaked\npackage(s) : nodejs ! !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                        print("%s%sInstallation breaked\npackage(s) : nodejs ! !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 elif argv[2] == "dotnet" and argc==3:
                     dotnet.install_dotnet()
@@ -95,14 +95,14 @@ for i in range(argc):
                     syscall("sudo apt install %s" % " ".join(argv[2:]))
                 # Exception
                 else:
-                    print("Command or package(s) not found ! %s" % (stuff.sysErorr(), argv[2:]))
+                    print("Command or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
 
             # if argument 1 equal to "uninstall"
             elif argv[1] == "uninstall" and argc >= 2:
 
                 # if after "uninstall" is empty
                 if argv[1] == "uninstall" and argc <= 2:
-                    print("%s %sAfter \"uninstall\" is empty !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                    print("%s %sAfter \"uninstall\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
                 
                 # if user want uninstall dotnet 
                 # do :
@@ -120,7 +120,7 @@ for i in range(argc):
 
                 # if after install is empty
                 if argv[1]== "rm" and argc<=2:
-                    print("%s %sAfter \"rm\" is empty !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                    print("%s %sAfter \"rm\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 #  argument 2 is not empty
                 # do :
@@ -130,14 +130,14 @@ for i in range(argc):
 
                 # Exception
                 else:
-                    print("Command or package(s) not found ! %s" % (stuff.sysErorr(), argv[2:]))
+                    print("Command or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
 
 
             # Too many arguments error for $ pck3r term
             # Only use :
             # $ pck3r term <somthing> <somthing> <somthing> <somthing>, ...
             elif argv[1] =="term" and argc>2:
-                print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysErorr(), stuff.RED, stuff.NRM))
+                print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
             elif argv[1] =="term" and argc==2:
                 from libs import pck3rTerminal
@@ -154,7 +154,7 @@ for i in range(argc):
             # Only use :
             # $ pck3r tilix <somthing> <somthing> <somthing> <somthing>, ...
             elif argv[1] =="tilix" and argc>2:
-                    print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysErorr(), stuff.RED, stuff.NRM))
+                    print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
 
             # if argument 1 equal to "google"
@@ -166,7 +166,7 @@ for i in range(argc):
 
                 # if after google is empty
                 if argv[1]== "google" and argc==2:
-                    print("%s%sAfter \"google\" is empty !\nPlease try:\n$ pck3r google <browser>%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                    print("%s%sAfter \"google\" is empty !\nPlease try:\n$ pck3r google <browser>%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 # only open google.com (browser == argv[2])
                 elif argv[2] != [] and argc==3:
@@ -196,7 +196,7 @@ for i in range(argc):
 
             # if after "sys" command is empty
             elif argv[1] == "sys" and argc == 2:
-                print("%s%sAfter \"sys\" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                print("%s%sAfter \"sys\" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
             # if after pck3r equal to "sys"
             elif argv[1] == "sys" and argc > 2:
@@ -218,7 +218,7 @@ for i in range(argc):
                         syscall("echo %s" % stuff.NRM)
                     
                     else:
-                        print(f"{stuff.sysErorr()}{stuff.RED}{stuff.NRM}")
+                        print(f"{stuff.sysERR()}{stuff.RED}{stuff.NRM}")
 
                 # if user command, equal to $ pck3r sys updgr
                 #do :
@@ -235,17 +235,17 @@ for i in range(argc):
                         syscall("echo %s" % stuff.NRM)
                     
                     else:
-                        print(f"{stuff.sysErorr()}{stuff.RED}{stuff.NRM}")
+                        print(f"{stuff.sysERR()}{stuff.RED}{stuff.NRM}")
                 
                 # if command is not a valid one !
                 # will send an error to the user.
                 # do :
                 else:
-                    print("%s%sPlease try this :\n$ pck3r google <browser> <word(1, 2, 3, 4, 5, 6, ...)-<word(n)>%s" % (stuff.sysErorr(), stuff.RED, stuff.NRM))
+                    print("%s%sPlease try this :\n$ pck3r google <browser> <word(1, 2, 3, 4, 5, 6, ...)-<word(n)>%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
             # if after "pkg" is empty
             elif argv[1]== "pkg" and argc <= 2:
-                print("%s%sAfter \"pkg\" is empty !%s " % (stuff.sysErorr() , stuff.RED, stuff.NRM))
+                print("%s%sAfter \"pkg\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
             
             # if after "pkg" is not empty
             elif argv[1] == "pkg" and argc >= 2:
@@ -259,14 +259,14 @@ for i in range(argc):
                             print("%s%sRunning minecraft...%s" %(stuff.sysOk() , stuff.GRN, stuff.NRM))
                             syscall("sudo java -jar ~/.TLauncher-2.75.jar")
                     else:
-                        print("%s%sCan't running minecraft  !\ncheck this path : %s/.TLauncher-2.75.jar\n%s"%(stuff.sysErorr(), stuff.RED, getenv("HOME"), stuff.NRM))
+                        print("%s%sCan't running minecraft  !\ncheck this path : %s/.TLauncher-2.75.jar\n%s"%(stuff.sysERR(), stuff.RED, getenv("HOME"), stuff.NRM))
             
             
             # if command not valid 
             # print :
             # and breaking any operation  
             else:
-                print("%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s" %  (stuff.sysErorr(), stuff.RED, stuff.CYN, stuff.NRM))
+                print("%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s" %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
 
         # end of (for) loop
         break
