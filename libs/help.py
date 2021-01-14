@@ -134,4 +134,4 @@ else:
     $ pck3r minecraft
     (minecraft runner)
 
-    """ % stuff.YEL)
+    """ % YEL)
