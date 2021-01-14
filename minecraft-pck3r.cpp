@@ -8,27 +8,12 @@
 #define WHT  "\x1B[37m" 
 using namespace std;
 const char *HOME= getenv("HOME");
-void sys_error(){
-     cout<<RED<<"尸⼕长㇌尺 : ERROR !"<<WHT<<endl;/* error */
- }
-void sys_ok(){
-     cout<<GRN<<"尸⼕长㇌尺 : OK !"<<WHT<<endl;/*no error*/
-}
-void start_install(){
-	cout<<YEL<<endl<<"Press ENTER key to continue ..."<<WHT;
-	getchar();cout<<WHT<<endl;
-}
-int Tlauncher(){
-	if((system("wget https://tlauncher.org/jar;unzip jar;rm README-EN.txt README-RUS.txt jar;mv TLauncher-2.75.jar .TLauncher-2.75.jar;"))!=0){
-        sys_error();
-        return -1;  
-     }
-     else{
-        sys_ok();
-        cout<<GRN<<"Route .TLauncher-2.75.jar was created";
-        return 0;
-     }	
-}
+
+void sys_error();
+void sys_ok();
+void start_install();
+int Tlauncher();
+
 int main(){
 	cout<<YEL<<"\nPrerequisites for installing software minecraft are:\n\t1.Update the entire system \n\t2.install openjfx\n\t3.install openjdk-8-jre\n";
 	start_install();
@@ -43,10 +28,31 @@ int main(){
 		cout<<RED<<"The operation was a failure\n"<<"Tlauncher not found !\n";	   
 		return 0;
 	}
-	else{
-		
+	else{	
 		cout<< GRN<<path+"/.TLauncher-2.75.jar\n"<<"Please try : \n$ pck3r minecraft\n";
 	}
-	
 	return 0;
+}
+
+void sys_error(){
+     cout<<RED<<"尸⼕长㇌尺 : ERROR !"<<WHT<<endl;/* error */
+ }
+void sys_ok(){
+     cout<<GRN<<"尸⼕长㇌尺 : OK !"<<WHT<<endl;/*no error*/
+}
+void start_install(){
+	cout<<YEL<<endl<<"Press ENTER key to continue ..."<<WHT;
+	getchar();cout<<WHT<<endl;
+}
+
+int Tlauncher(){
+	if((system("wget https://tlauncher.org/jar;unzip jar;rm README-EN.txt README-RUS.txt jar;mv TLauncher-2.75.jar .TLauncher-2.75.jar;"))!=0){
+        sys_error();
+        return -1;  
+     }
+     else{
+        sys_ok();
+        cout<<GRN<<"Route .TLauncher-2.75.jar was created";
+        return 0;
+     }	
 }
