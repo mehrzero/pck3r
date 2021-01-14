@@ -18,7 +18,6 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 from . import stuff
-from pathlib import PosixPath
 from os import system as syscall
 
 
