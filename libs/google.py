@@ -19,16 +19,8 @@ __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-
 
 
 from os import system as syscall
-#color zone
-NRM = "\x1B[0m"
-RED = "\x1B[31m"
-GRN = "\x1B[32m"
-YEL = "\x1B[33m"
-BLU = "\x1B[34m"
-MAG = "\x1B[35m"
-CYN = "\x1B[36m"
-WHT = "\x1B[37m"
-#end of color zone
+from . import stuff
+
 
 if __name__ == "__main__":
     print("""%s
@@ -41,23 +33,16 @@ if __name__ == "__main__":
     $ chmod 755 core_pck3r.py ; ./core_pck3r.py
     And for installing :
     $ chmod 755 installer.py ; ./installer.py
-    """ % RED)
+    """ % stuff.RED)
 
 else:
-        # system error (red logo print)
-    def sysErorr():
-        return("\n%s尸⼕长㇌尺 : ERROR !\n%s"% (RED, NRM))
-
-
-
-
     # only  user want google.com 
     def only_google_com(browser):
     
         
         if browser == "google-chrome": 
 
-            syscall("%s google.com" % browser) if (syscall("whereis google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (sysErorr(), RED, NRM))
+            syscall("%s google.com" % browser) if (syscall("whereis google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
             
         elif browser == "firefox":
             syscall("%s google.com" % browser)
@@ -66,7 +51,7 @@ else:
             syscall("%s google.com" % browser)
         
         else:
-            print("%s%sBrowser is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s" % (sysErorr(), RED, NRM))
+            print("%s%sBrowser is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
     # only firefox open search (firefox)
     def google_firefox(argv):
@@ -95,7 +80,7 @@ else:
             argv_joined = argv_joined.replace("-", "%-&gs")
             argv_joined = argv_joined.replace("?", "%3F")
             argv_joined = argv_joined.replace(" ", "+")    
-            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (sysErorr(), RED, NRM)) if(syscall("ls /usr/bin/chromium")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
+            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall("ls /usr/bin/chromium")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
 
 
         elif argv_browser == "chrome" or argv_browser == "google-chrome":
@@ -105,9 +90,9 @@ else:
             argv_joined = argv_joined.replace("-", "%-&gs")
             argv_joined = argv_joined.replace("?", "%3F")
             argv_joined = argv_joined.replace(" ", "+")    
-            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (sysErorr(), RED, NRM)) if(syscall("ls  /usr/bin/google-chrome")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
+            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall("ls  /usr/bin/google-chrome")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
 
         # Exception
         else : 
-            print(sysErorr())
-            print("%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (RED, NRM))
+            print(stuff.sysERR())
+            print("%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.RED, stuff.NRM))

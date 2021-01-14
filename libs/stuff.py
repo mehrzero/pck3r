@@ -48,7 +48,7 @@ if __name__ == "__main__":
     stop()
 else:
     # system error (red logo print)
-    def sysErorr():
+    def sysERR():
         return("\n%s尸⼕长㇌尺 : ERROR !\n%s"% (RED, NRM))
 
     #system call done (green logo print)

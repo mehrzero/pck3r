@@ -23,18 +23,7 @@ this is an other simple PyGTK terminal
 and you can fork, edit, ... this terminal
 UNDER GPL3 LICENSE ONLY !!!
 """
-
-
-#color zone
-NRM = "\x1B[0m"
-RED = "\x1B[31m"
-GRN = "\x1B[32m"
-YEL = "\x1B[33m"
-BLU = "\x1B[34m"
-MAG = "\x1B[35m"
-CYN = "\x1B[36m"
-WHT = "\x1B[37m"
-#end of color zone
+from . import stuff
 
 if __name__ == "__main__":
     print("""%s
@@ -47,7 +36,7 @@ OR
 $ chmod 755 core_pck3r.py ; ./core_pck3r.py
 And for installing :
 $ chmod 755 installer.py ; ./installer.py
-    """ % RED)
+    """ % stuff.RED)
 
 else:
     import gi
