@@ -22,18 +22,29 @@ from . import stuff
 
 if __name__ == "__main__":
     print("""%s
-    This is a module not an executeable program
-    Alternative command :
-    $ python3 core_pck3r.py
-    OR
-    $ python3 installer.py
-    ORl openjdk-8-jr
-|                                       |
-| you avoid using useless commands and  |
-|                                       |
-| it is written for Ubuntu...           |
-|                                       |
------------------------------------------
+This is a module not an executeable program
+Alternative command :
+$ python3 core_pck3r.py
+OR
+$ python3 installer.py
+OR
+$ chmod 755 core_pck3r.py ; ./core_pck3r.py
+And for installing :
+$ chmod 755 installer.py ; ./installer.py
+    """ % stuff.RED)
+
+else:
+        print("""%s
+    -----------------------------------------
+    |                                       |
+    | pck3r : It is a versatile program and |
+    |                                       |
+    | you avoid using useless commands and  |
+    |                                       |
+    | it is written for Ubuntu...           |
+    |                                       |
+    -----------------------------------------
+
 
 \"install\" command :
 
