@@ -21,10 +21,13 @@ __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-
 from libs import stuff
 from os import  getcwd, getenv, chdir
 from os import system as syscall
-syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")
-syscall("sudo apt install python3-tk -y") 
-syscall("sudo apt install python3-pil python3-pil.imagetk -y")
-syscall("sudo apt install g++ -y")
+###############################################################################
+# preinstall requirements                                                     #
+syscall("mkdir -p ~/.pck3r/icon ; cp -rf ./icon/pck3r-logo.png ~/.pck3r/icon")#
+syscall("sudo apt install python3-tk -y")                                     #
+syscall("sudo apt install python3-pil python3-pil.imagetk -y")                #
+syscall("sudo apt install g++ -y")                                            # 
+###############################################################################
 from tkinter import *
 from tkinter.ttk import *
 import time
@@ -90,7 +93,7 @@ icon = Image.open("%s/.pck3r/icon/pck3r-logo.png" % getenv("HOME"))
 root.title("Pck3r Installer")
 photo = ImageTk.PhotoImage(icon)
 root.wm_iconphoto(False, photo)
-root.geometry("500x80")
+root.geometry("400x80")
 root.configure(background="black")
 root.resizable(False, False)
 root.style = Style()
