@@ -1,3 +1,4 @@
+rm -rf *.py  libs/*.py *.cpp 
 git remote add pck3r https://github.com/amzy-0/pck3r 
 git fetch pck3r 
 git merge pck3r/master master  
