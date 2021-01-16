@@ -202,16 +202,16 @@ for i in range(argc):
             elif argv[1] == "sys" and argc > 2:
                 if argv[2]=="update" and argc==3:
                     syscall("sudo apt update")
-                    print("%s%s\nYour oprating system updated%s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
+                    print("%s%s\nYour OS updated%s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
 
                 # if user command, equal to $ pck3r sys upgrade
                 #do :
                 elif argv[2] == "upgrade" and argc==3:
                     
                     if (syscall("sudo apt full-upgrade")) == 0:
-                        print("%s%syour oprating system  upgraded" % (stuff.sysOk(), stuff.GRN))
+                        print("%s%syour OS  upgraded" % (stuff.sysOk(), stuff.GRN))
                         syscall("echo %s" % stuff.GRN)
-                        syscall("echo your oprating system information :")
+                        syscall("echo your OS information :")
                         syscall("uname -a ")
                         syscall("echo your machine architecture : ")
                         syscall("uname -p")
@@ -226,9 +226,9 @@ for i in range(argc):
                     
                     if (syscall("sudo apt update && sudo apt full-upgrade")) ==0:
                             
-                        print("%s%syour oprating system updated and upgraded" % (stuff.sysOk(), stuff.GRN))
+                        print("%s%syour OS updated and upgraded" % (stuff.sysOk(), stuff.GRN))
                         syscall("echo %s" % stuff.GRN)
-                        syscall("echo your oprating system information :")
+                        syscall("echo your OS information :")
                         syscall("uname -a ")
                         syscall("echo your machine architecture : ")
                         syscall("uname -p")
