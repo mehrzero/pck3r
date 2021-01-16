@@ -17,12 +17,7 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 """
 __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
-"""
-pck3r terminal
-this is an other simple PyGTK terminal
-and you can fork, edit, ... this terminal
-UNDER GPL3 LICENSE ONLY !!!
-"""
+
 from . import stuff
 
 if __name__ == "__main__":
