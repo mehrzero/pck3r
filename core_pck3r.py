@@ -131,7 +131,7 @@ for i in range(argc):
 
                 # Exception
                 else:
-                    print("%sCommand or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
+                    print("%sCommand or package(s) not found : %s" % (stuff.sysERR(), " ".join(argv[2:])))
 
 
             # Too many arguments error for $ pck3r term
@@ -260,7 +260,12 @@ for i in range(argc):
                             print("%s%sRunning minecraft...%s" %(stuff.sysOk() , stuff.GRN, stuff.NRM))
                             syscall("sudo java -jar ~/.TLauncher-2.75.jar")
                     else:
-                        print("%s%sCan't running minecraft  !\ncheck this path : %s/.TLauncher-2.75.jar\n%s"%(stuff.sysERR(), stuff.RED, getenv("HOME"), stuff.NRM))
+                        print("""%s%s
+Can't running minecraft  !
+check this path : %s/.TLauncher-2.75.jar
+install minecraft :
+$ pck3r install minecraft%s"""
+                        %(stuff.sysERR(), stuff.RED, getenv("HOME"), stuff.NRM))
             
             
             # if command not valid 
