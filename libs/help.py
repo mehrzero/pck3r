@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
+__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 
 from . import stuff
@@ -93,12 +93,10 @@ else:
 
 \"term\" command :
 
-
     $pck3r term
     (command for run, pck3r terminal emulator)
 
 \"google\" command :
-
 
     $pck3r google <browser> <search section(word1 word2 word3 ...)
     (quick google search ...)
@@ -106,30 +104,25 @@ else:
 
 \"tilix\" command :
 
-
     $ pck3r tilix
     (tilix terminal ...)
 
 \"dotnet\" command :
-
 
     $ pck3r install dotnet
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)
 
 \"pkg\" command :
 
-
     $ pck3r pkg <package name>
     (search for packages ...)
 
 \"update\" command :
 
-
     $ pck3r update
     (update to last release from github.com/amzy-0/pck3r)
     
 \"minecraft\" command :
-
 
     $ pck3r minecraft
     (minecraft runner)
