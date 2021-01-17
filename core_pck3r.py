@@ -92,10 +92,11 @@ for i in range(argc):
 
                 elif argv[2:] != [] and argc >= 2:
                     print("%s%s\nCommand is valid!\n%s" % (stuff.sysOk(), stuff.GRN, stuff.YEL))
-                    syscall("sudo apt install %s" % " ".join(argv[2:]))
-                # Exception
-                else:
-                    print("%sCommand or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
+                    if (syscall("sudo apt install %s" % " ".join(argv[2:])))==0:
+                        pass
+                    # Exception
+                    else:
+                        print("%s%sPackage(s) or Command(s) not found : \"%s\"" % (stuff.sysERR(), stuff.RED, " ".join(argv[2:])))
 
             # if argument 1 equal to "uninstall"
             elif argv[1] == "uninstall" and argc >= 2:
