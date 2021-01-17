@@ -95,7 +95,7 @@ for i in range(argc):
                     syscall("sudo apt install %s" % " ".join(argv[2:]))
                 # Exception
                 else:
-                    print("Command or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
+                    print("%sCommand or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
 
             # if argument 1 equal to "uninstall"
             elif argv[1] == "uninstall" and argc >= 2:
@@ -130,7 +130,7 @@ for i in range(argc):
 
                 # Exception
                 else:
-                    print("Command or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
+                    print("%sCommand or package(s) not found ! %s" % (stuff.sysERR(), argv[2:]))
 
 
             # Too many arguments error for $ pck3r term
