@@ -1,5 +1,4 @@
 #include <iostream> 
-#include <string.h>
 #include <unistd.h>
 /* mehrzero@gmail.com * https://github.com/mehrzero */
 #define RED  "\x1B[31m" /*color zone*/
