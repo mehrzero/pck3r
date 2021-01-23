@@ -15,34 +15,36 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
+__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 
-#color zone
-NRM = "\x1B[0m"
-RED = "\x1B[31m"
-GRN = "\x1B[32m"
-YEL = "\x1B[33m"
-BLU = "\x1B[34m"
-MAG = "\x1B[35m"
-CYN = "\x1B[36m"
-WHT = "\x1B[37m"
-#end of color zone
+from . import stuff
 
 if __name__ == "__main__":
     print("""%s
-    This is a module not an executeable program
-    Alternative command :
-    $ python3 core_pck3r.py
-    OR
-    $ python3 installer.py
-    ORl openjdk-8-jr
-|                                       |
-| you avoid using useless commands and  |
-|                                       |
-| it is written for Ubuntu...           |
-|                                       |
------------------------------------------
+This is a module not an executeable program
+Alternative command :
+$ python3 core_pck3r.py
+OR
+$ python3 installer.py
+OR
+$ chmod 755 core_pck3r.py ; ./core_pck3r.py
+And for installing :
+$ chmod 755 installer.py ; ./installer.py
+    """ % stuff.RED)
+
+else:
+        print("""%s
+    -----------------------------------------
+    |                                       |
+    | pck3r : It is a versatile program and |
+    |                                       |
+    | you avoid using useless commands and  |
+    |                                       |
+    | it is written for Ubuntu...           |
+    |                                       |
+    -----------------------------------------
+
 
 \"install\" command :
 
@@ -91,12 +93,10 @@ if __name__ == "__main__":
 
 \"term\" command :
 
-
     $pck3r term
     (command for run, pck3r terminal emulator)
 
 \"google\" command :
-
 
     $pck3r google <browser> <search section(word1 word2 word3 ...)
     (quick google search ...)
@@ -104,32 +104,27 @@ if __name__ == "__main__":
 
 \"tilix\" command :
 
-
     $ pck3r tilix
     (tilix terminal ...)
 
 \"dotnet\" command :
-
 
     $ pck3r install dotnet
     (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)
 
 \"pkg\" command :
 
-
     $ pck3r pkg <package name>
     (search for packages ...)
 
 \"update\" command :
-
 
     $ pck3r update
     (update to last release from github.com/amzy-0/pck3r)
     
 \"minecraft\" command :
 
-
     $ pck3r minecraft
     (minecraft runner)
 
-    """ % YEL)
+    """ % stuff.YEL)

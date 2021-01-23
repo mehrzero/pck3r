@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrziro", "https://github.com/amzy-0/pck3r/graphs/contributors"]
+__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 
 #color zone
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     stop()
 else:
     # system error (red logo print)
-    def sysErorr():
+    def sysERR():
         return("\n%s尸⼕长㇌尺 : ERROR !\n%s"% (RED, NRM))
 
     #system call done (green logo print)
