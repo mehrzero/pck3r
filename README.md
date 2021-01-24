@@ -53,11 +53,11 @@ $ ./install.py
 
     $ pck3r install "somthing" :
     {
-            nodejs,
-            wine,
-            ohmyzsh,
-            minecraft,
-            or ...
+        nodejs,
+        wine,
+        ohmyzsh,
+        minecraft,
+        or ...
     }
 
 "clear" command :
@@ -131,3 +131,10 @@ $ ./install.py
 
     $ pck3r minecraft
     (minecraft runner)
+
+
+"version" command :
+
+
+    $ pck3r version
+    (this command show pck3r version)

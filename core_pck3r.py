@@ -256,9 +256,11 @@ for i in range(argc):
                     syscall("sudo apt search %s" % " ".join(argv[2:]))
             
             elif argv[1] == "minecraft" and argc ==2:
+
                     if (syscall("ls ~/.TLauncher-2.75.jar"))==0:
                             print("%s%sRunning minecraft...%s" %(stuff.sysOk() , stuff.GRN, stuff.NRM))
                             syscall("sudo java -jar ~/.TLauncher-2.75.jar")
+                    
                     else:
                         print("""%s%s
 Can't running minecraft  !
@@ -267,7 +269,9 @@ install minecraft :
 $ pck3r install minecraft%s"""
                         %(stuff.sysERR(), stuff.RED, getenv("HOME"), stuff.NRM))
             
-            
+            elif argv[1] == "version" and argc ==2:
+                print(f"{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}")
+
             # if command not valid 
             # print :
             # and breaking any operation  

@@ -50,13 +50,11 @@ else:
 
     $ pck3r install \"somthing\" :
     {
-            nodejs,
-            python3pip,
-            java,
-            wine,
-            ohmyzsh,
-            minecraft,
-            or ...
+        nodejs,
+        wine,
+        ohmyzsh,
+        minecraft,
+        or ...
     }
 
 \"clear\" command :
@@ -126,5 +124,11 @@ else:
 
     $ pck3r minecraft
     (minecraft runner)
+
+"version" command :
+
+    $ pck3r version
+    (this command show pck3r version)
+
 
     """ % stuff.YEL)
