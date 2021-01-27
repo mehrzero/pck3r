@@ -42,7 +42,7 @@ good luck...
 *for system wide installation :*
 
 
-$ ./install.py
+$ ./installer.py
 
 
 
