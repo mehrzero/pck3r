@@ -34,10 +34,8 @@ int main(){
 	chdir(HOME);
 	string path=HOME;
 	system("sudo apt update && sudo apt full-upgrade -y");//update and upgrade (full upgrade)
-	system("sleep 3");cout<<YEL<<endl<<"next"<<WHT<<endl;//sleep system
 	/* (install openjfx) * (install openjdk-8-jre)*/
 	system("sudo apt install openjfx -y && sudo apt install openjdk-8-jre -y");	
-	system("sleep 3");cout<<YEL<<endl<<"next"<<WHT<<endl;//sleep system
 	if((Tlauncher())!=0){/* TLAUNCHER install */
 		cout<<RED<<"The operation was a failure\n"<<"Tlauncher not found !\n";	   
 		return 0;
