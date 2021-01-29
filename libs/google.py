@@ -18,24 +18,24 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 
-from os import system as syscall
-from . import stuff
-
 
 if __name__ == "__main__":
-    print("""%s
-    This is a module not an executeable program
-    Alternative command :
-    $ python3 core_pck3r.py
-    OR
-    $ python3 installer.py
-    OR
-    $ chmod 755 core_pck3r.py ; ./core_pck3r.py
-    And for installing :
-    $ chmod 755 installer.py ; ./installer.py
-    """ % stuff.RED)
+    print("""
+This is a module not an executeable program
+Alternative command :
+$ python3 core_pck3r.py
+OR
+$ python3 installer.py
+OR
+$ chmod 755 core_pck3r.py ; ./core_pck3r.py
+And for installing :
+$ chmod 755 installer.py ; ./installer.py
+    """)
 
 else:
+
+    from os import system as syscall
+    from . import stuff
     # only  user want google.com 
     def only_google_com(browser):
     

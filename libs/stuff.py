@@ -32,7 +32,7 @@ WHT = "\x1B[37m"
 # Modules error !
 
 def stop():
-    print("""%s
+    print("""
 This is a module not an executeable program
 Alternative command :
 $ python3 core_pck3r.py
@@ -42,7 +42,7 @@ OR
 $ chmod 755 core_pck3r.py ; ./core_pck3r.py
 And for installing :
 $ chmod 755 installer.py ; ./installer.py
-    """ % RED)
+    """ )
 
 if __name__ == "__main__":
     stop()

@@ -17,14 +17,15 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 """
 __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
-from . import stuff
-from os import system as syscall
-
 
 # system error (red logo print)
 
 
 def install_dotnet():
+
+    from . import stuff
+    from os import system as syscall
+
     if (syscall("wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb")) != 0:
         stuff.sysERR()
         print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
@@ -141,3 +142,15 @@ def uninstall_dotnet():
         stuff.sysOk()
         print("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) reomved  "% stuff.GRN )
 
+if __name__ == "__main__":
+    print("""
+This is a module not an executeable program
+Alternative command :
+$ python3 core_pck3r.py
+OR
+$ python3 installer.py
+OR
+$ chmod 755 core_pck3r.py ; ./core_pck3r.py
+And for installing :
+$ chmod 755 installer.py ; ./installer.py
+    """)

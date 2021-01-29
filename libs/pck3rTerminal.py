@@ -18,10 +18,9 @@ this program. If not, see <http://www.gnu.org/licenses/>.
 __authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
 
 
-from . import stuff
 
 if __name__ == "__main__":
-    print("""%s
+    print("""
 This is a module not an executeable program
 Alternative command :
 $ python3 core_pck3r.py
@@ -31,10 +30,11 @@ OR
 $ chmod 755 core_pck3r.py ; ./core_pck3r.py
 And for installing :
 $ chmod 755 installer.py ; ./installer.py
-    """ % stuff.RED)
+    """)
 
 else:
     import gi
+    from . import stuff
     gi.require_version("Gtk", "3.0")
     gi.require_version("Vte", "2.91")
 
