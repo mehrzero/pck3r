@@ -23,6 +23,7 @@ from sys import argv
 from libs import stuff
 from libs import google
 from libs import dotnet
+from libs import wine
 
 argc = len(argv)
 
@@ -87,7 +88,12 @@ for i in range(argc):
                     chdir("%s/.pck3r" % getenv("HOME"))
                     syscall("g++ minecraft-pck3r.cpp -o  minecraft")
                     syscall("./minecraft")
-                    
+                
+                # wine installer blocks
+                # command : $ pck3r install  wine 
+                elif argv[2] == "wine" and argc==3:
+                    wine.wine_installer()
+
                 # argument 2 is not empty
 
                 elif argv[2:] != [] and argc >= 2:
@@ -271,7 +277,7 @@ $ pck3r install minecraft%s"""
             
             elif argv[1] == "version" and argc ==2:
                 print(f"{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}")
-
+                print(f"{stuff.MAG}Authors : {stuff.CYN}{', '.join(__authors__[:2])}, ...{stuff.NRM}")
             # if command not valid 
             # print :
             # and breaking any operation  
