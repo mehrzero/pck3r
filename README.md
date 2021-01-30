@@ -65,15 +65,6 @@ $ ./installer.py
     $ pck3r clear:
     {clear your terminal }
 
-"iso" command :
-
-    $ pck3r iso 32/64  "somthing":
-    {
-        mint,
-        fedora,
-        gentoo,
-        or ...
-    }
 
 "sys" command :
 
