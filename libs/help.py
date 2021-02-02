@@ -75,7 +75,7 @@ else:
     $ pck3r sys upgrade
     (upgrade your oprating system)
 
-    $ pck3r updgr
+    $ pck3r sys updgr
     (both, update and upgrade (full upgrade))
 
 
