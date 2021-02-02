@@ -40,9 +40,9 @@ else:
     def only_google_com(browser):
     
         
-        if browser == "google-chrome": 
+        if browser == "google-chrome" or browser == "chrome": 
 
-            syscall("%s google.com" % browser) if (syscall("whereis google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            syscall("%s google.com" % browser) if (syscall("ls /usr/bin/google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
             
         elif browser == "firefox":
             syscall("%s google.com" % browser)
@@ -96,3 +96,5 @@ else:
         else : 
             print(stuff.sysERR())
             print("%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.RED, stuff.NRM))
+
+    
