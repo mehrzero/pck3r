@@ -15,8 +15,7 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
-
+__authors__ = ['M.Amin Azimi .K (amzy-0)', 'mehrzero', 'https://github.com/amzy-0/pck3r/graphs/contributors']
 
 
 if __name__ == "__main__":
@@ -35,8 +34,8 @@ $ chmod 755 installer.py ; ./installer.py
 else:
     import gi
     from . import stuff
-    gi.require_version("Gtk", "3.0")
-    gi.require_version("Vte", "2.91")
+    gi.require_version('Gtk', '3.0')
+    gi.require_version('Vte', '2.91')
 
     from gi.repository import Gtk, Vte
     from gi.repository import GLib
@@ -45,8 +44,8 @@ else:
     terminal = Vte.Terminal()
     terminal.spawn_sync(
     Vte.PtyFlags.DEFAULT,
-    environ["HOME"],
-    [getenv("SHELL")],
+    environ['HOME'],
+    [getenv('SHELL')],
     [],
     GLib.SpawnFlags.DO_NOT_REAP_CHILD,
     None,
@@ -55,7 +54,7 @@ else:
 
 
     win = Gtk.Window()
-    win.connect("delete_event", Gtk.main_quit)
+    win.connect('delete_event', Gtk.main_quit)
     win.add(terminal)
     win.show_all()
 

@@ -15,132 +15,137 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
-
+__authors__ = ['M.Amin Azimi .K (amzy-0)', 'mehrzero', 'https://github.com/amzy-0/pck3r/graphs/contributors']
 
 # system error (red logo print)
 
+from os import system as syscall
 
 def install_dotnet():
 
     from . import stuff
-    from os import system as syscall
 
-    if (syscall("wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb")) != 0:
+    if (syscall('wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo dpkg -i packages-microsoft-prod.deb")) !=0 :
+    elif (syscall('sudo dpkg -i packages-microsoft-prod.deb')) !=0 :
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
 
-    elif (syscall("sudo apt update")) != 0:
+    elif (syscall('sudo apt update')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  install -y apt-transport-https")) != 0:
+    elif (syscall('sudo apt  install -y apt-transport-https')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  update")) != 0:
+    elif (syscall('sudo apt  update')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall(" sudo apt  install -y dotnet-sdk-3.1")) != 0:
+    elif (syscall(' sudo apt  install -y dotnet-sdk-3.1')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  install -y aspnetcore-runtime-3.1")) != 0:
+    elif (syscall('sudo apt  install -y aspnetcore-runtime-3.1')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  install -y dotnet-runtime-3.1")) != 0:
+    elif (syscall('sudo apt  install -y dotnet-runtime-3.1')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt install -y mono-complete")) != 0:
+    elif (syscall('sudo apt install -y mono-complete')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 )  "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 )  '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  update")) != 0:
+    elif (syscall('sudo apt  update')) != 0:
         stuff.sysERR()
-        print("%scan't install .NET (only for *UBUNTU 20.04 )  "% stuff.RED)
+        print('%sCan\'t install .NET (only for *UBUNTU 20.04 )  '% stuff.RED)
 
 
     else:
         stuff.sysOk()
-        print("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) installed  "% stuff.GRN )
+        print('%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) installed  '% stuff.GRN )
 
 def uninstall_dotnet():
-    if (syscall("sudo apt update")) != 0:
+
+    from . import stuff
+
+    if (syscall('sudo apt update')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt purge  -y apt-transport-https")) != 0:
+    elif (syscall('sudo apt purge  -y apt-transport-https')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  update")) != 0:
+    elif (syscall('sudo apt  update')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall(" sudo apt purge  -y dotnet-sdk-3.1")) != 0:
+    elif (syscall(' sudo apt purge  -y dotnet-sdk-3.1')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt purge  -y aspnetcore-runtime-3.1")) != 0:
+    elif (syscall('sudo apt purge  -y aspnetcore-runtime-3.1')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt purge  -y dotnet-runtime-3.1")) != 0:
+    elif (syscall('sudo apt purge  -y dotnet-runtime-3.1')) != 0:
         stuff.sysERR()
-        print("%sCan't remove .NET (only for *UBUNTU 20.04 ) \n "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 ) \n '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt purge  -y mono-complete")) != 0:
+    elif (syscall('sudo apt purge  -y mono-complete')) != 0:
         stuff.sysERR()
-        print("%scan't remove .NET (only for *UBUNTU 20.04 )  "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 )  '% stuff.RED)
 
 
 
-    elif (syscall("sudo apt  update && sudo apt full-upgrade ; sudo apt autoremove -y")) != 0:
+    elif (syscall('sudo apt  update && sudo apt full-upgrade ; sudo apt autoremove -y')) != 0:
         stuff.sysERR()
-        print("%scan't remove .NET (only for *UBUNTU 20.04 )  "% stuff.RED)
+        print('%sCan\'t remove .NET (only for *UBUNTU 20.04 )  '% stuff.RED)
 
 
     else:
         stuff.sysOk()
-        print("%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) reomved  "% stuff.GRN )
+        print('%s.NET(microsoft dotnet and MCS compiler (LINUX platform) ) reomved  '% stuff.GRN )
+
+
+
 
 if __name__ == "__main__":
     print("""

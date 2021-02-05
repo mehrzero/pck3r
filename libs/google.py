@@ -15,8 +15,7 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
-
+__authors__ = ['M.Amin Azimi .K (amzy-0)', 'mehrzero', 'https://github.com/amzy-0/pck3r/graphs/contributors']
 
 
 if __name__ == "__main__":
@@ -36,66 +35,67 @@ else:
 
     from os import system as syscall
     from . import stuff
+    
     # only  user want google.com 
     def only_google_com(browser):
     
         
-        if browser == "google-chrome" or browser == "chrome": 
+        if browser == 'google-chrome' or browser == 'chrome': 
 
-            syscall("%s google.com" % browser) if (syscall("ls /usr/bin/google-chrome")) == 0 else print("%s%sgoogle-chrome is not installed \n$ pck3r install google-chrome !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            syscall('%s google.com' % browser) if (syscall('ls /usr/bin/google-chrome')) == 0 else print('%s%sgoogle-chrome is not installed \n$ pck3r install google-chrome !!!\nOnly firefox, chrome(google-chrome), chromium%s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
             
-        elif browser == "firefox":
-            syscall("%s google.com" % browser)
+        elif browser == 'firefox':
+            syscall('%s google.com' % browser)
 
-        elif browser == "chromium":
-            syscall("%s google.com" % browser)
+        elif browser == 'chromium':
+            syscall('%s google.com' % browser)
         
         else:
-            print("""%s%sBrowsers is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s
-            """ % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            print('''%s%sBrowsers is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s
+            ''' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
     # only firefox open search (firefox)
     def google_firefox(argv):
-        argv_joined = " ".join(argv[3:])
-        argv_joined = argv_joined.replace("?", "%3F")
-        argv_joined = argv_joined.replace("+", "%2B")
-        argv_joined = argv_joined.replace("-", "-&g")
-        argv_joined = argv_joined.replace(" ", "+")
-        syscall("firefox https://www.google.com/search?q=%s" % argv_joined)
+        argv_joined = ' '.join(argv[3:])
+        argv_joined = argv_joined.replace('?', '%3F')
+        argv_joined = argv_joined.replace('+', '%2B')
+        argv_joined = argv_joined.replace('-', '-&g')
+        argv_joined = argv_joined.replace(' ', '+')
+        syscall('firefox https://www.google.com/search?q=%s' % argv_joined)
 
     # other browser (firefox/chrome/chromium)
     def google_other(argv_browser, argv_two):
 
-        if argv_browser == "firefox":
-            argv_joined = " ".join(argv_two[3:])
-            argv_joined = argv_joined.replace("+", "%2B")
-            argv_joined = argv_joined.replace("-", "%-&gs")
-            argv_joined = argv_joined.replace("?", "%3F")
-            argv_joined = argv_joined.replace(" ", "+")
-            syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
+        if argv_browser == 'firefox':
+            argv_joined = ' '.join(argv_two[3:])
+            argv_joined = argv_joined.replace('+', '%2B')
+            argv_joined = argv_joined.replace('-', '%-&gs')
+            argv_joined = argv_joined.replace('?', '%3F')
+            argv_joined = argv_joined.replace(' ', '+')
+            syscall('%s https://www.google.com/search?q=%s' % (argv_browser, argv_joined))
             
-        elif argv_browser == "chromium" : 
+        elif argv_browser == 'chromium' : 
             
-            argv_joined = " ".join(argv_two[3:])
-            argv_joined = argv_joined.replace("+", "%2B")
-            argv_joined = argv_joined.replace("-", "%-&gs")
-            argv_joined = argv_joined.replace("?", "%3F")
-            argv_joined = argv_joined.replace(" ", "+")    
-            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall("ls /usr/bin/chromium")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
+            argv_joined = ' '.join(argv_two[3:])
+            argv_joined = argv_joined.replace('+', '%2B')
+            argv_joined = argv_joined.replace('-', '%-&gs')
+            argv_joined = argv_joined.replace('?', '%3F')
+            argv_joined = argv_joined.replace(' ', '+')    
+            print('%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s' % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall('ls /usr/bin/chromium')) !=0 else syscall('%s https://www.google.com/search?q=%s' % (argv_browser, argv_joined))
 
 
-        elif argv_browser == "chrome" or argv_browser == "google-chrome":
+        elif argv_browser == 'chrome' or argv_browser == 'google-chrome':
 
-            argv_joined = " ".join(argv_two[3:])
-            argv_joined = argv_joined.replace("+", "%2B")
-            argv_joined = argv_joined.replace("-", "%-&gs")
-            argv_joined = argv_joined.replace("?", "%3F")
-            argv_joined = argv_joined.replace(" ", "+")    
-            print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall("ls  /usr/bin/google-chrome")) !=0 else syscall("%s https://www.google.com/search?q=%s" % (argv_browser, argv_joined))
+            argv_joined = ' '.join(argv_two[3:])
+            argv_joined = argv_joined.replace('+', '%2B')
+            argv_joined = argv_joined.replace('-', '%-&gs')
+            argv_joined = argv_joined.replace('?', '%3F')
+            argv_joined = argv_joined.replace(' ', '+')    
+            print('%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s' % (stuff.sysERR(), stuff.RED, stuff.NRM)) if(syscall('ls  /usr/bin/google-chrome')) !=0 else syscall('%s https://www.google.com/search?q=%s' % (argv_browser, argv_joined))
 
         # Exception
         else : 
             print(stuff.sysERR())
-            print("%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.RED, stuff.NRM))
+            print('%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s' % (stuff.RED, stuff.NRM))
 
     

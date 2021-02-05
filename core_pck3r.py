@@ -15,7 +15,7 @@ You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
 """
-__authors__ = ["M.Amin Azimi .K (amzy-0)", "mehrzero", "https://github.com/amzy-0/pck3r/graphs/contributors"]
+__authors__ = ['M.Amin Azimi .K (amzy-0)', 'mehrzero', 'https://github.com/amzy-0/pck3r/graphs/contributors']
 
 from os import system as syscall
 from os import getenv, getcwd, chdir
@@ -31,137 +31,137 @@ for i in range(argc):
 
         # if user just type $ pck3r
         if argc <= 1:
-            print("%s%sNo arguments\nPlease try :\n$ pck3r <commands>\nOR\n$ pck3r help %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            print('%s%sNo arguments\nPlease try :\n$ pck3r <commands>\nOR\n$ pck3r help %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
         else:
 
             # if argument 1 equal to "clear"
             # clear terminal
             # do :
-            if argv[1] == "clear" and argc == 2:
-                syscall("clear")
-                print("%sThis is funny clear command :D "%stuff.sysOk())
+            if argv[1] == 'clear' and argc == 2:
+                syscall('clear')
+                print('%sThis is funny clear command :D '%stuff.sysOk())
             
             # pck3r updator
-            elif argv[1] == "update" and argc == 2:
-                chdir("%s/.pck3r" % getenv("HOME"))
-                print("%s/.pck3r/./updator"  % getenv("HOME"))
-                syscall("./updator")
+            elif argv[1] == 'update' and argc == 2:
+                chdir('%s/.pck3r' % getenv('HOME'))
+                print('%s/.pck3r/./updator'  % getenv('HOME'))
+                syscall('./updator')
 
             # if argument 1 equal to "help"
             # like -> $ pck3r help
             # do :
-            elif argv[1] == "help" and argc == 2:
+            elif argv[1] == 'help' and argc == 2:
                 from libs import help
 
             # if argument 1 equal to "install"
             # and argument 2 is not empty
             # do :
-            elif argv[1] == "install" and argc >= 2:
+            elif argv[1] == 'install' and argc >= 2:
 
                 # if after install is empty
-                if argv[1]== "install" and argc <= 2:
-                    print("%s%sAfter \"install\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                if argv[1]== 'install' and argc <= 2:
+                    print('%s%sAfter "install" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 # if argument 2 is nodejs
-                elif argv[2]=="nodejs" and argc==3:
+                elif argv[2]=='nodejs' and argc==3:
 
-                    if (syscall("echo %s ; curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - ; echo %s ; sudo apt install nodejs; sudo apt-get update && echo %s; sudo apt install yarnpkg -y" % (stuff.YEL, stuff.CYN, stuff.MAG)))==0:
+                    if (syscall('echo %s ; curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - ; echo %s ; sudo apt install nodejs; sudo apt-get update && echo %s; sudo apt install yarnpkg -y' % (stuff.YEL, stuff.CYN, stuff.MAG)))==0:
 
-                        print("%s" % stuff.sysOk())
+                        print('%s' % stuff.sysOk())
 
-                        syscall("echo %s\"Nodejs LTS Version :\" ;  node --version %s" %(stuff.GRN, stuff.NRM))
-                        syscall("echo \"Npm Version :\" %s; npm --version %s" %(stuff.GRN, stuff.NRM))
+                        syscall('echo %s"Nodejs LTS Version :" ;  node --version %s' %(stuff.GRN, stuff.NRM))
+                        syscall('echo "Npm Version :" %s; npm --version %s' %(stuff.GRN, stuff.NRM))
 
                         # Exception
                     else:
-                        print("%s%sInstallation breaked\npackage(s) : nodejs ! !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                        print('%s%sInstallation breaked\npackage(s) : nodejs ! !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
-                elif argv[2] == "dotnet" and argc==3:
+                elif argv[2] == 'dotnet' and argc==3:
                     dotnet.install_dotnet()
 
-                elif argv[2] == "ohmyzsh" and argc==3:
-                    syscall("sudo apt install zsh curl")
-                    syscall("sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"") if (syscall("curl --version")) == 0 else syscall("echo \"curl\" is required for using \"ohMyZsh\" ; sudo apt install curl")
+                elif argv[2] == 'ohmyzsh' and argc==3:
+                    syscall('sudo apt install zsh curl')
+                    syscall('sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"') if (syscall('curl --version')) == 0 else syscall('echo "curl" is required for using "ohMyZsh" ; sudo apt install curl')
 
-                elif argv[2] == "minecraft" and argc==3:
-                    chdir("%s/.pck3r" % getenv("HOME"))
-                    syscall("g++ minecraft-pck3r.cpp -o  minecraft")
-                    syscall("./minecraft")
+                elif argv[2] == 'minecraft' and argc==3:
+                    chdir('%s/.pck3r' % getenv('HOME'))
+                    syscall('g++ minecraft-pck3r.cpp -o  minecraft')
+                    syscall('./minecraft')
                 
                 # wine installer blocks
                 # command : $ pck3r install  wine 
-                elif argv[2] == "wine" and argc==3:
+                elif argv[2] == 'wine' and argc==3:
                     wine.wine_installer()
 
                 # argument 2 is not empty
 
                 elif argv[2:] != [] and argc >= 2:
-                    print("%s%s\nCommand is valid!\n%s" % (stuff.sysOk(), stuff.GRN, stuff.YEL))
-                    if (syscall("sudo apt install %s" % " ".join(argv[2:])))==0:
+                    print('%s%s\nCommand is valid!\n%s' % (stuff.sysOk(), stuff.GRN, stuff.YEL))
+                    if (syscall('sudo apt install %s' % ' '.join(argv[2:])))==0:
                         pass
                     # Exception
                     else:
-                        print("%s%sPackage(s) or Command(s) not found : \"%s\"" % (stuff.sysERR(), stuff.RED, " ".join(argv[2:])))
+                        print('%s%sPackage(s) or Command(s) not found : \'%s"' % (stuff.sysERR(), stuff.RED, ' '.join(argv[2:])))
 
             # if argument 1 equal to "uninstall"
-            elif argv[1] == "uninstall" and argc >= 2:
+            elif argv[1] == 'uninstall' and argc >= 2:
 
                 # if after "uninstall" is empty
-                if argv[1] == "uninstall" and argc <= 2:
-                    print("%s %sAfter \"uninstall\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                if argv[1] == 'uninstall' and argc <= 2:
+                    print('%s %sAfter "uninstall" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
                 
                 # if user want uninstall dotnet 
                 # do :
-                elif argv[2]=="dotnet" and argc==3:
+                elif argv[2]=='dotnet' and argc==3:
                     dotnet.uninstall_dotnet()
 
                 # argument 2 is not empty
                 # do :
                 elif argv[2:] != [] and argc >= 2:
-                    print("%s%s\nCommand is valid!\n%s" % (stuff.sysOk(), stuff.GRN, stuff.YEL))
-                    syscall("sudo apt purge %s" % " ".join(argv[2:]))
+                    print('%s%s\nCommand is valid!\n%s' % (stuff.sysOk(), stuff.GRN, stuff.YEL))
+                    syscall('sudo apt purge %s' % ' '.join(argv[2:]))
 
             # if argument 1 equal to "rm" (sudo apt remove)
-            elif argv[1] == "rm" and argc >= 2:
+            elif argv[1] == 'rm' and argc >= 2:
 
                 # if after install is empty
-                if argv[1]== "rm" and argc<=2:
-                    print("%s %sAfter \"rm\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                if argv[1]== 'rm' and argc<=2:
+                    print('%s %sAfter "rm" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 #  argument 2 is not empty
                 # do :
                 if argv[2:] != [] and argc>=2:
-                    print("%s%s\nCommand is valid!\n%s" % (stuff.sysOk(), stuff.GRN, stuff.YEL))
-                    syscall("sudo apt remove %s" % " ".join(argv[2:]))
+                    print('%s%s\nCommand is valid!\n%s' % (stuff.sysOk(), stuff.GRN, stuff.YEL))
+                    syscall('sudo apt remove %s' % ' '.join(argv[2:]))
 
                 # Exception
                 else:
-                    print("%sCommand or package(s) not found : %s" % (stuff.sysERR(), " ".join(argv[2:])))
+                    print('%sCommand or package(s) not found : %s' % (stuff.sysERR(), ' '.join(argv[2:])))
 
 
             # Too many arguments error for $ pck3r term
             # Only use :
             # $ pck3r term <somthing> <somthing> <somthing> <somthing>, ...
-            elif argv[1] =="term" and argc>2:
-                print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            elif argv[1] =='term' and argc>2:
+                print('%s%sToo many arguments !\nOnly use :\n$ pck3r term %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
-            elif argv[1] =="term" and argc==2:
+            elif argv[1] =='term' and argc==2:
                 from libs import pck3rTerminal
 
 
             # Too many arguments error for $ pck3r term
             # Only use :
             # $ pck3r tilix <somthing> <somthing> <somthing> <somthing>, ...
-            elif argv[1] =="tilix" and argc==2:
-                syscall("sudo apt install tilix  ; clear ; tilix ")
+            elif argv[1] =='tilix' and argc==2:
+                syscall('sudo apt install tilix  ; clear ; tilix ')
 
 
             # Too many arguments error for $ pck3r tilix
             # Only use :
             # $ pck3r tilix <somthing> <somthing> <somthing> <somthing>, ...
-            elif argv[1] =="tilix" and argc>2:
-                    print("%s%sToo many arguments !\nOnly use :\n$ pck3r term %s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            elif argv[1] =='tilix' and argc>2:
+                    print('%s%sToo many arguments !\nOnly use :\n$ pck3r term %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
 
             # if argument 1 equal to "google"
@@ -169,32 +169,32 @@ for i in range(argc):
             # this function substitute all marks or simbols (+,-,\?, ...)
             # and all arguments are  valid  for search input
 
-            elif argv[1] == "google" and argc >= 2:
+            elif argv[1] == 'google' and argc >= 2:
 
                 # if after google is empty
-                if argv[1]== "google" and argc==2:
-                    print("%s%sAfter \"google\" is empty !\nPlease try:\n$ pck3r google <browser>%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                if argv[1]== 'google' and argc==2:
+                    print('%s%sAfter "google" is empty !\nPlease try:\n$ pck3r google <browser>%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 # only open google.com (browser == argv[2])
                 elif argv[2] != [] and argc==3:
-                    if argv[2] == "chrome":
-                        google.google_other("google-chrome", argv)
+                    if argv[2] == 'chrome':
+                        google.google_other('google-chrome', argv)
                     else:
                         google.only_google_com(argv[2])
 
-                elif argv[2] == "firefox" and argc>3:
+                elif argv[2] == 'firefox' and argc>3:
                     google.google_firefox(argv)
 
-                elif argv[2]=="chrome" and argc>3:
-                    google.google_other("google-chrome", argv)
+                elif argv[2]=='chrome' and argc>3:
+                    google.google_other('google-chrome', argv)
 
                 # open google.com only (google chrome)
-                elif argv[2]=="chrome" and argc==3:
-                    google.google_other("google-chrome", argv)
+                elif argv[2]=='chrome' and argc==3:
+                    google.google_other('google-chrome', argv)
 
                 # open google.com only (google chrome)
-                elif argv[2]=="google-chrome" and argc==3:
-                    google.google_other("google-chrome", argv)
+                elif argv[2]=='google-chrome' and argc==3:
+                    google.google_other('google-chrome', argv)
 
                 # open google.com with other browser
                 elif argv[2]!= [] and argc > 3:
@@ -202,70 +202,70 @@ for i in range(argc):
 
 
             # if after "sys" command is empty
-            elif argv[1] == "sys" and argc == 2:
-                print("%s%sAfter \"sys\" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+            elif argv[1] == 'sys' and argc == 2:
+                print('%s%sAfter "sys" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
             # if after pck3r equal to "sys"
-            elif argv[1] == "sys" and argc > 2:
-                if argv[2]=="update" and argc==3:
-                    syscall("sudo apt update")
-                    print("%s%s\nYour OS updated%s" % (stuff.sysOk(), stuff.GRN, stuff.NRM))
+            elif argv[1] == 'sys' and argc > 2:
+                if argv[2]=='update' and argc==3:
+                    syscall('sudo apt update')
+                    print('%s%s\nYour OS updated%s' % (stuff.sysOk(), stuff.GRN, stuff.NRM))
 
                 # if user command, equal to $ pck3r sys upgrade
                 #do :
-                elif argv[2] == "upgrade" and argc==3:
+                elif argv[2] == 'upgrade' and argc==3:
                     
-                    if (syscall("sudo apt full-upgrade")) == 0:
-                        print("%s%syour OS  upgraded" % (stuff.sysOk(), stuff.GRN))
-                        syscall("echo %s" % stuff.GRN)
-                        syscall("echo your OS information :")
-                        syscall("uname -a ")
-                        syscall("echo your machine architecture : ")
-                        syscall("uname -p")
-                        syscall("echo %s" % stuff.NRM)
+                    if (syscall('sudo apt full-upgrade')) == 0:
+                        print('%s%syour OS  upgraded' % (stuff.sysOk(), stuff.GRN))
+                        syscall('echo %s' % stuff.GRN)
+                        syscall('echo your OS information :')
+                        syscall('uname -a ')
+                        syscall('echo your machine architecture : ')
+                        syscall('uname -p')
+                        syscall('echo %s' % stuff.NRM)
                     
                     else:
-                        print(f"{stuff.sysERR()}{stuff.RED}{stuff.NRM}")
+                        print(f'{stuff.sysERR()}{stuff.RED}{stuff.NRM}')
 
                 # if user command, equal to $ pck3r sys updgr
                 #do :
-                elif argv[2] == "updgr" and argc==3:
+                elif argv[2] == 'updgr' and argc==3:
                     
-                    if (syscall("sudo apt update && sudo apt full-upgrade")) ==0:
+                    if (syscall('sudo apt update && sudo apt full-upgrade')) ==0:
                             
-                        print("%s%syour OS updated and upgraded" % (stuff.sysOk(), stuff.GRN))
-                        syscall("echo %s" % stuff.GRN)
-                        syscall("echo your OS information :")
-                        syscall("uname -a ")
-                        syscall("echo your machine architecture : ")
-                        syscall("uname -p")
-                        syscall("echo %s" % stuff.NRM)
+                        print('%s%syour OS updated and upgraded' % (stuff.sysOk(), stuff.GRN))
+                        syscall('echo %s' % stuff.GRN)
+                        syscall('echo your OS information :')
+                        syscall('uname -a ')
+                        syscall('echo your machine architecture : ')
+                        syscall('uname -p')
+                        syscall('echo %s' % stuff.NRM)
                     
                     else:
-                        print(f"{stuff.sysERR()}{stuff.RED}{stuff.NRM}")
+                        print(f'{stuff.sysERR()}{stuff.RED}{stuff.NRM}')
                 
                 # if command is not a valid one !
                 # will send an error to the user.
                 # do :
                 else:
-                    print("%s%sPlease try this :\n$ pck3r google <browser> <word(1, 2, 3, 4, 5, 6, ...)-<word(n)>%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+                    print('%s%sPlease try this :\n$ pck3r google <browser> <word(1, 2, 3, 4, 5, 6, ...)-<word(n)>%s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
             # if after "pkg" is empty
-            elif argv[1]== "pkg" and argc <= 2:
-                print("%s%sAfter \"pkg\" is empty !%s " % (stuff.sysERR() , stuff.RED, stuff.NRM))
+            elif argv[1]== 'pkg' and argc <= 2:
+                print('%s%sAfter "pkg" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
             
             # if after "pkg" is not empty
-            elif argv[1] == "pkg" and argc >= 2:
+            elif argv[1] == 'pkg' and argc >= 2:
 
                 # if after "pkg" isn't empty
                 if argv[2:] != [] and argc >= 2:
-                    syscall("sudo apt search %s" % " ".join(argv[2:]))
+                    syscall('sudo apt search %s' % ' '.join(argv[2:]))
             
-            elif argv[1] == "minecraft" and argc ==2:
+            elif argv[1] == 'minecraft' and argc ==2:
 
-                    if (syscall("ls ~/.TLauncher-2.75.jar"))==0:
-                            print("%s%sRunning minecraft...%s" %(stuff.sysOk() , stuff.GRN, stuff.NRM))
-                            syscall("sudo java -jar ~/.TLauncher-2.75.jar")
+                    if (syscall('ls ~/.TLauncher-2.75.jar'))==0:
+                            print('%s%sRunning minecraft...%s' %(stuff.sysOk() , stuff.GRN, stuff.NRM))
+                            syscall('sudo java -jar ~/.TLauncher-2.75.jar')
                     
                     else:
                         print("""%s%s
@@ -273,16 +273,16 @@ Can't running minecraft  !
 check this path : %s/.TLauncher-2.75.jar
 install minecraft :
 $ pck3r install minecraft%s"""
-                        %(stuff.sysERR(), stuff.RED, getenv("HOME"), stuff.NRM))
+                        %(stuff.sysERR(), stuff.RED, getenv('HOME'), stuff.NRM))
             
-            elif argv[1] == "version" and argc ==2:
-                print(f"{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}")
-                print(f"{stuff.MAG}Authors : {stuff.CYN}{', '.join(__authors__[:2])}, ...{stuff.NRM}")
+            elif argv[1] == 'version' and argc ==2:
+                print(f'{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}')
+                print(f'{stuff.MAG}Authors : {stuff.CYN}{", ".join(__authors__[:2])}, ...{stuff.NRM}')
             # if command not valid 
             # print :
             # and breaking any operation  
             else:
-                print("%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s" %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
+                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s' %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
 
         # end of (for) loop
         break
