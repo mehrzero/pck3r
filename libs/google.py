@@ -42,7 +42,7 @@ else:
         
         if browser == "google-chrome" or browser == "chrome": 
 
-            syscall("%s google.com" % browser) if (syscall("ls /usr/bin/google-chrome")) == 0 else print("%s%sBrowser is not a valid one !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            syscall("%s google.com" % browser) if (syscall("ls /usr/bin/google-chrome")) == 0 else print("%s%sgoogle-chrome is not installed \n$ pck3r install google-chrome !!!\nOnly firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
             
         elif browser == "firefox":
             syscall("%s google.com" % browser)
@@ -51,7 +51,8 @@ else:
             syscall("%s google.com" % browser)
         
         else:
-            print("%s%sBrowser is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s" % (stuff.sysERR(), stuff.RED, stuff.NRM))
+            print("""%s%sBrowsers is not a valid one !!!\nOnly : firefox, chrome(google-chrome), chromium%s
+            """ % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
     # only firefox open search (firefox)
     def google_firefox(argv):
