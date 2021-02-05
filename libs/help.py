@@ -121,4 +121,4 @@ else:
     (this command show pck3r version)
 
 
-    """ % stuff.YEL)
+    """ % (stuff.YEL, stuff.NRM))
