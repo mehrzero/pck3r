@@ -275,9 +275,17 @@ install minecraft :
 $ pck3r install minecraft%s"""
                         %(stuff.sysERR(), stuff.RED, getenv('HOME'), stuff.NRM))
             
+            # if user want to see the pck3r version
             elif argv[1] == 'version' and argc ==2:
                 print(f'{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}')
                 print(f'{stuff.MAG}Authors : {stuff.CYN}{", ".join(__authors__[:2])}, ...{stuff.NRM}')
+            
+            elif argv[1] == 'page' and argc==2:
+                # compiler call for compile the pck3r_page.cpp file 
+                syscall('g++ pck3r_page.cpp -o page')
+                # after compile execute page (file)
+                syscall('./page')
+            
             # if command not valid 
             # print :
             # and breaking any operation  
