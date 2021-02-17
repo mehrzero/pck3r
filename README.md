@@ -129,3 +129,11 @@ $ ./installer.py
 
     $ pck3r version
     (this command show pck3r version)
+
+
+
+"page" command :
+
+
+    $ pck3r page
+    (this command show https://github.com/amzy-0/pck3r with your own browser)
