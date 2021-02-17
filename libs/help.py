@@ -124,8 +124,8 @@ else:
 
 "page" command :
 
-$ pck3r page
-(this command show https://github.com/amzy-0/pck3r with your own browser)
+    $ pck3r page
+    (this command show https://github.com/amzy-0/pck3r with your own browser)
 
 
     %s
