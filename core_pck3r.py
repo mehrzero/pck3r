@@ -281,10 +281,14 @@ $ pck3r install minecraft%s"""
                 print(f'{stuff.MAG}Authors : {stuff.CYN}{", ".join(__authors__[:2])}, ...{stuff.NRM}')
             
             elif argv[1] == 'page' and argc==2:
+                # change direcotry to the /home/username/.pck3r
+                chdir('%s/.pck3r' %getenv('HOME'))
+
                 # compiler call for compile the pck3r_page.cpp file 
                 syscall('g++ pck3r_page.cpp -o page')
+
                 # after compile execute page (file)
-                syscall('./page')
+                syscall('%s/.pck3r/./page' % getenv('HOME'))
             
             # if command not valid 
             # print :
