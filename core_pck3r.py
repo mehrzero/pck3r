@@ -225,7 +225,8 @@ for i in range(argc):
                         syscall('echo %s' % stuff.NRM)
                     
                     else:
-                        print(f'{stuff.sysERR()}{stuff.RED}{stuff.NRM}')
+                        print(f'{stuff.sysERR()}{stuff.RED}Please try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>{stuff.NRM}')
+
 
                 # if user command, equal to $ pck3r sys updgr
                 #do :
@@ -240,16 +241,14 @@ for i in range(argc):
                         syscall('echo your machine architecture : ')
                         syscall('uname -p')
                         syscall('echo %s' % stuff.NRM)
-                    
-                    else:
-                        print(f'{stuff.sysERR()}{stuff.RED}{stuff.NRM}')
-                
+                                    
                 # if command is not a valid one !
                 # will send an error to the user.
                 # do :
                 else:
-                    print('%s%sPlease try this :\n$ pck3r google <browser> <word(1, 2, 3, 4, 5, 6, ...)-<word(n)>%s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
-
+                    print(f'{stuff.sysERR()}{stuff.RED}Please try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>{stuff.NRM}')
+                    
+                    
             # if after "pkg" is empty
             elif argv[1]== 'pkg' and argc <= 2:
                 print('%s%sAfter "pkg" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
