@@ -80,12 +80,6 @@ else:
     $ pck3r sys updgr
     (both, update and upgrade (full upgrade))
 
-
-\"term\" command :
-
-    $pck3r term
-    (command for run, pck3r terminal emulator)
-
 \"google\" command :
 
     $pck3r google <browser> <search section(word1 word2 word3 ...)

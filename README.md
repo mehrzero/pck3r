@@ -77,11 +77,6 @@ $ ./installer.py
     $ pck3r sys updgr
     (both, update and upgrade (full upgrade))
 
-"term" command :
-
-    $ pck3r term
-    (command for run, pck3r terminal emulator)
-
 "google" command :
 
 

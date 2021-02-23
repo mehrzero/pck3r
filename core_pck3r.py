@@ -142,16 +142,6 @@ for i in range(argc):
 
             # Too many arguments error for $ pck3r term
             # Only use :
-            # $ pck3r term <somthing> <somthing> <somthing> <somthing>, ...
-            elif argv[1] =='term' and argc>2:
-                print('%s%sToo many arguments !\nOnly use :\n$ pck3r term %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
-
-            elif argv[1] =='term' and argc==2:
-                from libs import pck3rTerminal
-
-
-            # Too many arguments error for $ pck3r term
-            # Only use :
             # $ pck3r tilix <somthing> <somthing> <somthing> <somthing>, ...
             elif argv[1] =='tilix' and argc==2:
                 syscall('sudo apt install tilix  ; clear ; tilix ')
@@ -216,15 +206,27 @@ for i in range(argc):
                 elif argv[2] == 'upgrade' and argc==3:
                     
                     if (syscall('sudo apt full-upgrade')) == 0:
+                        
+                        # print with green logo  
                         print('%s%syour OS  upgraded' % (stuff.sysOk(), stuff.GRN))
+                        # echo green color and 
+                        # and say:
                         syscall('echo %s' % stuff.GRN)
+                    
+                        # All information about OS 
                         syscall('echo your OS information :')
                         syscall('uname -a ')
+
+                        # the machine architecture 
                         syscall('echo your machine architecture : ')
                         syscall('uname -p')
+                        # end of the all information and 
+                        #back to the true color of this terminal 
                         syscall('echo %s' % stuff.NRM)
                     
+                    # Exception
                     else:
+                        
                         print(f'{stuff.sysERR()}{stuff.RED}Please try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>{stuff.NRM}')
 
 
@@ -267,6 +269,7 @@ for i in range(argc):
                             syscall('sudo java -jar ~/.TLauncher-2.75.jar')
                     
                     else:
+
                         print("""%s%s
 Can't running minecraft  !
 check this path : %s/.TLauncher-2.75.jar
@@ -274,6 +277,7 @@ install minecraft :
 $ pck3r install minecraft%s"""
                         %(stuff.sysERR(), stuff.RED, getenv('HOME'), stuff.NRM))
             
+
             # if user want to see the pck3r version
             elif argv[1] == 'version' and argc ==2:
                 print(f'{stuff.CYN}version is :{stuff.YEL} 0.2{stuff.NRM}')
@@ -289,6 +293,7 @@ $ pck3r install minecraft%s"""
                 # after compile execute page (file)
                 syscall('%s/.pck3r/./page' % getenv('HOME'))
             
+
             # if command not valid 
             # print :
             # and breaking any operation  
