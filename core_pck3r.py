@@ -154,43 +154,6 @@ for i in range(argc):
                     print('%s%sToo many arguments !\nOnly use :\n$ pck3r term %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
 
 
-            # if argument 1 equal to "google"
-            # after 3 argument ($pck3r google <args>) will  send all other arguments to google_firefox function
-            # this function substitute all marks or simbols (+,-,\?, ...)
-            # and all arguments are  valid  for search input
-
-            elif argv[1] == 'google' and argc >= 2:
-
-                # if after google is empty
-                if argv[1]== 'google' and argc==2:
-                    print('%s%sAfter "google" is empty !\nPlease try:\n$ pck3r google <browser>%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
-
-                # only open google.com (browser == argv[2])
-                elif argv[2] != [] and argc==3:
-                    if argv[2] == 'chrome':
-                        google.google_other('google-chrome', argv)
-                    else:
-                        google.only_google_com(argv[2])
-
-                elif argv[2] == 'firefox' and argc>3:
-                    google.google_firefox(argv)
-
-                elif argv[2]=='chrome' and argc>3:
-                    google.google_other('google-chrome', argv)
-
-                # open google.com only (google chrome)
-                elif argv[2]=='chrome' and argc==3:
-                    google.google_other('google-chrome', argv)
-
-                # open google.com only (google chrome)
-                elif argv[2]=='google-chrome' and argc==3:
-                    google.google_other('google-chrome', argv)
-
-                # open google.com with other browser
-                elif argv[2]!= [] and argc > 3:
-                    google.google_other(argv[2], argv)
-
-
             # if after "sys" command is empty
             elif argv[1] == 'sys' and argc == 2:
                 print('%s%sAfter "sys" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
