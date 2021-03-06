@@ -1,7 +1,8 @@
 
-![release](https://img.shields.io/badge/release-0.3-blue)
-
-
+![release](https://img.shields.io/badge/release-0.3-blue) ![issues](https://img.shields.io/github/issues/amzy-0/pck3r) ![license](https://img.shields.io/github/license/amzy-0/pck3r)
+![]()
+![]()
+![]()
 # pck3r :
 
 ![Screenshot](screenshot/pck3r.png)
