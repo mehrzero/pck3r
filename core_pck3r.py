@@ -61,6 +61,9 @@ for i in range(argc):
                 # if after install is empty
                 if argv[1]== 'install' and argc <= 2:
                     print('%s%sAfter "install" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                
+                elif argv[2] == 'flstudio' and argc == 3:
+                    from libs import flstudio
 
                 # if argument 2 is nodejs
                 elif argv[2]=='nodejs' and argc==3:
@@ -255,6 +258,7 @@ $ pck3r install minecraft%s"""
                 # after compile execute page (file)
                 syscall('%s/.pck3r/./page' % getenv('HOME'))
             
+
 
             # if command not valid 
             # print :
