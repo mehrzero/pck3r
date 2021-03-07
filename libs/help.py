@@ -116,7 +116,7 @@ else:
     $ pck3r page
     (this command show https://github.com/amzy-0/pck3r with your own browser)
 
-"flsudio" command :
+"flstudio" command :
 
     $ pck3r flstudio
     (fl studio installer command)

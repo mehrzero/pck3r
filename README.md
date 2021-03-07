@@ -128,7 +128,7 @@ $ ./installer.py
     (this command show https://github.com/amzy-0/pck3r with your own browser)
 
 
-"flsudio" command :
+"flstudio" command :
 
 
     $ pck3r flstudio
