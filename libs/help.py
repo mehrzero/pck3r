@@ -129,7 +129,7 @@ else:
 
     # pck3r heart runner
     
-    if (syscall(' ~/.pck3r/scripts/./pck3r-heart.rb' % getcwd()))==0:
+    if (syscall(' ~/.pck3r/scripts/./pck3r-heart.rb'))==0:
         print(message)
         syscall('~/.pck3r/scripts/./pck3r-heart.rb')
 
