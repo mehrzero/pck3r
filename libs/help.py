@@ -139,8 +139,8 @@ else:
                 
                 # clear the terminal and reload help 
                 syscall('clear')
-                help()
+                
                 quit()
-            
+                
             
 help()
