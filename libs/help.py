@@ -122,23 +122,10 @@ else:
 
         "flstudio" command :
 
-<<<<<<< HEAD
             $ pck3r flstudio
             (fl studio installer command)
             %s
             """ % (stuff.YEL, stuff.NRM))
-=======
-    # pck3r heart runner
-    
-    if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
-        pass
-
-    # if ruby not installed 
-    else:
-        print('%sdependency detected : ruby-full%s' % (stuff.YEL, stuff.NRM))
-        
-        syscall('sudo apt install ruby-full')
->>>>>>> pck3r/master
 
             # pck3r heart runner
             if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
