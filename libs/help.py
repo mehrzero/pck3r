@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 from os import system as syscall
-from os import chdir, getcwd
+from os import chdir, getcwd, getenv
+
 """ 
 
 Short description of this Python module.
@@ -129,7 +130,7 @@ else:
 
     # pck3r heart runner
     
-    if (syscall(' ~/.pck3r/scripts/./pck3r-heart.rb'))==0:
+    if (syscall(' %s/.pck3r/scripts/./pck3r-heart.rb' %getenv('HOME')))==0:
         print(message)
         syscall('~/.pck3r/scripts/./pck3r-heart.rb')
 
