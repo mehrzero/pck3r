@@ -131,7 +131,7 @@ else:
     
     if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
         print(message)
-        syscall(' %s/scripts/./pck3r-heart.rb' % getcwd())
+        syscall(' scripts/./pck3r-heart.rb')
 
     # if ruby not installed 
     else:
@@ -140,4 +140,4 @@ else:
         syscall('sudo apt install ruby-full')
         syscall('clear')
         print(message)
-        syscall(' %s/scripts/./pck3r-heart.rb' % getcwd())
+        syscall(' scripts/./pck3r-heart.rb')
