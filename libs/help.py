@@ -139,7 +139,7 @@ else:
                 
                 # clear the terminal and reload help 
                 syscall('clear')
-                
+                print('Please retry : $ pck3r help')
                 quit()
                 
             
