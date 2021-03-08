@@ -140,4 +140,4 @@ else:
         syscall('sudo apt install ruby-full')
         syscall('clear')
         print(message)
-        syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()
+        syscall(' %s/scripts/./pck3r-heart.rb' % getcwd())
