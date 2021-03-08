@@ -131,7 +131,7 @@ else:
     
     if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
         print(message)
-        
+        syscall(' %s/scripts/./pck3r-heart.rb' % getcwd())
 
     # if ruby not installed 
     else:
