@@ -35,112 +35,108 @@ $ chmod 755 installer.py ; ./installer.py
     """)
 
 else:
+    from . import stuff
 
-    def help():        
-            from . import stuff
-
-            print(
-                """%s
-            -----------------------------------------
-            |                                       |
-            | pck3r : It is a versatile program and |
-            |                                       |
-            | you avoid using useless commands and  |
-            |                                       |
-            | it is written for Ubuntu...           |
-            |                                       |
-            -----------------------------------------
+    message ="""%s
+    -----------------------------------------
+    |                                       |
+    | pck3r : It is a versatile program and |
+    |                                       |
+    | you avoid using useless commands and  |
+    |                                       |
+    | it is written for Ubuntu...           |
+    |                                       |
+    -----------------------------------------
 
 
-        \"install\" command :
+\"install\" command :
 
-            $ pck3r install \"somthing\" :
-            {
-                nodejs,
-                wine,
-                ohmyzsh,
-                minecraft,
-                or ...
-            }
+    $ pck3r install \"somthing\" :
+    {
+        nodejs,
+        wine,
+        ohmyzsh,
+        minecraft,
+        or ...
+    }
 
-        \"clear\" command :
+\"clear\" command :
 
-            $ pck3r clear:
-            {clear your terminal }
+    $ pck3r clear:
+    {clear your terminal }
 
-        \"dwn\" command :
+\"dwn\" command :
 
-            $ pck3r dwn \"https/http://somthing\"
-            {dwn is downloader for pck3r }
+    $ pck3r dwn \"https/http://somthing\"
+    {dwn is downloader for pck3r }
 
-        \"sys\" command :
+\"sys\" command :
 
-            $ pck3r sys update
-            (update your oprating system)
+    $ pck3r sys update
+    (update your oprating system)
 
-            $ pck3r sys upgrade
-            (upgrade your oprating system)
+    $ pck3r sys upgrade
+    (upgrade your oprating system)
 
-            $ pck3r sys updgr
-            (both, update and upgrade (full upgrade))
+    $ pck3r sys updgr
+    (both, update and upgrade (full upgrade))
 
 
-        \"tilix\" command :
+\"tilix\" command :
 
-            $ pck3r tilix
-            (tilix terminal ...)
+    $ pck3r tilix
+    (tilix terminal ...)
 
-        \"dotnet\" command :
+\"dotnet\" command :
 
-            $ pck3r install dotnet
-            (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)
+    $ pck3r install dotnet
+    (installing .NET (dot net ) C0RE, ASP, MCS compiler , ...)
 
-        \"pkg\" command :
+\"pkg\" command :
 
-            $ pck3r pkg <package name>
-            (search for packages ...)
+    $ pck3r pkg <package name>
+    (search for packages ...)
 
-        \"update\" command :
+\"update\" command :
 
-            $ pck3r update
-            (update to last release from github.com/amzy-0/pck3r)
-            
-        \"minecraft\" command :
+    $ pck3r update
+    (update to last release from github.com/amzy-0/pck3r)
+    
+\"minecraft\" command :
 
-            $ pck3r minecraft
-            (minecraft runner)
+    $ pck3r minecraft
+    (minecraft runner)
 
-        "version" command :
+"version" command :
 
-            $ pck3r version
-            (this command show pck3r version)
+    $ pck3r version
+    (this command show pck3r version)
 
-        "page" command :
+"page" command :
 
-            $ pck3r page
-            (this command show https://github.com/amzy-0/pck3r with your own browser)
+    $ pck3r page
+    (this command show https://github.com/amzy-0/pck3r with your own browser)
 
-        "flstudio" command :
+"flstudio" command :
 
-            $ pck3r flstudio
-            (fl studio installer command)
+    $ pck3r flstudio
+    (fl studio installer command)
             %s
-            """ % (stuff.YEL, stuff.NRM))
+    """ % (stuff.YEL, stuff.NRM)
 
-            # pck3r heart runner
-            if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
-                pass
 
-            # if ruby not installed 
-            else:
-                print('%sdependency detected : ruby-full%s' % (stuff.YEL, stuff.NRM))
-                
-                syscall('sudo apt install ruby-full -y')
-                
-                # clear the terminal and reload help 
-                syscall('clear')
-                print('Please retry : $ pck3r help')
-                quit()
-                
-            
-help()
+
+
+    # pck3r heart runner
+    
+    if (syscall(' %s/scripts/./pck3r-heart.rb' % getcwd()))==0:
+        print(message)
+        
+
+    # if ruby not installed 
+    else:
+        print('%sdependency detected : ruby-full%s' % (stuff.YEL, stuff.NRM))
+        
+        syscall('sudo apt install ruby-full')
+        syscall('clear')
+        print(message)
