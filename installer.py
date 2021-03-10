@@ -59,10 +59,10 @@ def bar():
     root.update_idletasks()
     time.sleep(1)
    
-    syscall('rm -rf ~/.pck3r') if (syscall('echo %s ; ls ~/.pck3r' % stuff.CYN)) ==0 else print('%sCopy all pck3r directory %s' %(stuff.CYN, stuff.NRM))
+    syscall('rm -rf ~/.pck3r && sudo rm -rf /root/.pck3r') if (syscall('echo %s ; ls ~/.pck3r' % stuff.CYN)) ==0 else print('%sCopy all pck3r directory %s' %(stuff.CYN, stuff.NRM))
     syscall('mkdir ~/.pck3r')
     syscall('cp -rf . ~/.pck3r')
-    syscall('cp -rf . ~/.pck3r')
+    syscall('sudo cp -rf . /root/.pck3r')
 
     # 50% PROGRESS
     progress['value'] = 50
