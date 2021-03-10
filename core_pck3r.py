@@ -30,7 +30,7 @@ for i in range(argc):
 
         # if user just type $ pck3r
         if argc <= 1:
-            print('%s%sNo arguments\nPlease try :\n$ pck3r <commands>\nOR\n$ pck3r help %s' % (stuff.sysERR(), stuff.RED, stuff.NRM))
+                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s' %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
 
         else:
 
