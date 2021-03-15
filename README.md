@@ -57,6 +57,7 @@ $ ./installer.py
         nodejs,
         wine,
         ohmyzsh,
+        flstudio,
         minecraft,
         or ...
     }
@@ -121,8 +122,3 @@ $ ./installer.py
     (this command show pck3r version)
 
 
-"flstudio" command :
-
-
-    $ pck3r flstudio
-    (fl studio installer command)

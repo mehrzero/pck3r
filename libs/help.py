@@ -57,6 +57,7 @@ else:
         nodejs,
         wine,
         ohmyzsh,
+        flstudio,
         minecraft,
         or ...
     }
@@ -66,10 +67,6 @@ else:
     $ pck3r clear:
     {clear your terminal }
 
-\"dwn\" command :
-
-    $ pck3r dwn \"https/http://somthing\"
-    {dwn is downloader for pck3r }
 
 \"sys\" command :
 
@@ -113,10 +110,7 @@ else:
     $ pck3r version
     (this command show pck3r version)
 
-"flstudio" command :
 
-    $ pck3r flstudio
-    (fl studio installer command)
             %s
     """ % (stuff.YEL, stuff.NRM)
 
