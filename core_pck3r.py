@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" 
+''' 
 
 Short description of this Python module.
 Longer description of this module.
@@ -14,8 +14,11 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
 
-"""
-__authors__ = ['M.Amin Azimi .K (amzy-0)', 'mehrzero', 'https://github.com/amzy-0/pck3r/graphs/contributors']
+'''
+
+__authors__ = ['M.Amin Azimi .K (amzy-0)', 
+                'mehrzero', 
+                'https://github.com/amzy-0/pck3r/graphs/contributors']
 
 from os import system as syscall
 from os import getenv, getcwd, chdir
@@ -30,7 +33,8 @@ for i in range(argc):
 
         # if user just type $ pck3r
         if argc <= 1:
-                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s' %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
+                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s' 
+                    %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
 
         else:
 
@@ -39,12 +43,15 @@ for i in range(argc):
             # do :
             if argv[1] == 'clear' and argc == 2:
                 syscall('clear')
-                print('%sThis is funny clear command :D '%stuff.sysOk())
+                print('%sThis is funny clear command :D ' 
+                % stuff.sysOk())
             
             # pck3r updator
             elif argv[1] == 'update' and argc == 2:
-                chdir('%s/.pck3r' % getenv('HOME'))
-                print('%s/.pck3r/./updator'  % getenv('HOME'))
+                chdir('%s/.pck3r' 
+                % getenv('HOME'))
+                print('%s/.pck3r/./updator'  
+                % getenv('HOME'))
                 syscall('./updator')
 
             # if argument 1 equal to "help"
@@ -60,7 +67,8 @@ for i in range(argc):
 
                 # if after install is empty
                 if argv[1]== 'install' and argc <= 2:
-                    print('%s%sAfter "install" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                    print('%s%sAfter "install" is empty !%s ' 
+                    % (stuff.sysERR() , stuff.RED, stuff.NRM))
                 
                 elif argv[2] == 'flstudio' and argc == 3:
                     from libs import flstudio
@@ -68,23 +76,35 @@ for i in range(argc):
                 # if argument 2 is nodejs
                 elif argv[2]=='nodejs' and argc==3:
 
-                    if (syscall('echo %s ; curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - ; echo %s ; sudo apt install nodejs; sudo apt-get update && echo %s; sudo apt install yarnpkg -y' % (stuff.YEL, stuff.CYN, stuff.MAG)))==0:
+                    if (syscall(
+                        '''echo %s ; 
+                        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - ;
+                         echo %s ; sudo apt install nodejs; sudo apt-get update && echo %s;
+                         sudo apt install yarnpkg -y'''
+                        % (stuff.YEL, stuff.CYN, stuff.MAG)))==0:
 
                         print('%s' % stuff.sysOk())
 
-                        syscall('echo %s"Nodejs LTS Version :" ;  node --version %s' %(stuff.GRN, stuff.NRM))
-                        syscall('echo "Npm Version :" %s; npm --version %s' %(stuff.GRN, stuff.NRM))
+                        syscall('echo %s"Nodejs LTS Version :" ;  node --version %s' 
+                        %(stuff.GRN, stuff.NRM))
+                        syscall('echo "Npm Version :" %s; npm --version %s' 
+                        %(stuff.GRN, stuff.NRM))
 
                         # Exception
                     else:
-                        print('%s%sInstallation breaked\npackage(s) : nodejs ! !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                        print('%s%s\nplease retry...\n$ pck3r install nodejs%s ' 
+                        % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
                 elif argv[2] == 'dotnet' and argc==3:
                     dotnet.install_dotnet()
 
                 elif argv[2] == 'ohmyzsh' and argc==3:
                     syscall('sudo apt install zsh curl')
-                    syscall('sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"') if (syscall('curl --version')) == 0 else syscall('echo "curl" is required for using "ohMyZsh" ; sudo apt install curl')
+                    if (syscall('curl --version')) == 0 :
+                        syscall('sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"') 
+                    else:
+                        syscall('echo "curl" is required for using "ohMyZsh" ; sudo apt install curl')
+                        syscall('sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"') 
 
                 elif argv[2] == 'minecraft' and argc==3:
                     chdir('%s/.pck3r' % getenv('HOME'))
@@ -99,19 +119,24 @@ for i in range(argc):
                 # argument 2 is not empty
 
                 elif argv[2:] != [] and argc >= 2:
-                    print('%s%s\nCommand is valid!\n%s' % (stuff.sysOk(), stuff.GRN, stuff.YEL))
-                    if (syscall('sudo apt install %s' % ' '.join(argv[2:])))==0:
+                    print('%s%s\nCommand is valid!\n%s' 
+                    % (stuff.sysOk(), stuff.GRN, stuff.YEL))
+                    if (syscall('sudo apt install %s' 
+                    % ' '.join(argv[2:])))==0:
                         pass
                     # Exception
                     else:
-                        print('%s%sPackage(s) or Command(s) not found : \'%s"' % (stuff.sysERR(), stuff.RED, ' '.join(argv[2:])))
+                        print('%s%sPackage(s) or Command(s) not found : \'%s"' 
+                        % (stuff.sysERR(), stuff.RED, ' '.join(argv[2:])))
 
             # if argument 1 equal to "uninstall"
             elif argv[1] == 'uninstall' and argc >= 2:
 
                 # if after "uninstall" is empty
                 if argv[1] == 'uninstall' and argc <= 2:
-                    print('%s %sAfter "uninstall" is empty !%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
+
+                    print('%s %sAfter "uninstall" is empty !%s ' 
+                    % (stuff.sysERR() , stuff.RED, stuff.NRM))
                 
                 # if user want uninstall dotnet 
                 # do :
@@ -158,7 +183,12 @@ for i in range(argc):
 
             # if after "sys" command is empty
             elif argv[1] == 'sys' and argc == 2:
-                print('%s%sAfter "sys" is empty !\nPlease try:\n$ pck3r sys <update/upgrade/updgr(update and upgrade)>%s ' % (stuff.sysERR() , stuff.RED, stuff.NRM))
+                print('''
+                %s%sAfter "sys" is empty !
+                Please try:
+                $ pck3r sys <update/upgrade/updgr(update and upgrade)>%s
+                '''
+                 % (stuff.sysERR() , stuff.RED, stuff.NRM))
 
             # if after pck3r equal to "sys"
             elif argv[1] == 'sys' and argc > 2:
@@ -235,11 +265,12 @@ for i in range(argc):
                     
                     else:
 
-                        print("""%s%s
-Can't running minecraft  !
-check this path : %s/.TLauncher-2.75.jar
-install minecraft :
-$ pck3r install minecraft%s"""
+                        print('''%s%s
+                        Can't running minecraft  !
+                        check this path : %s/.TLauncher-2.75.jar
+                        install minecraft :
+                        $ pck3r install minecraft%s
+                        '''
                         %(stuff.sysERR(), stuff.RED, getenv('HOME'), stuff.NRM))
             
 
@@ -253,7 +284,8 @@ $ pck3r install minecraft%s"""
             # print :
             # and breaking any operation  
             else:
-                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s' %  (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
+                print('%s%sCommand not found !%s\nPlease try:\n$ pck3r help %s'
+                 % (stuff.sysERR(), stuff.RED, stuff.CYN, stuff.NRM))
 
         # end of (for) loop
         break
