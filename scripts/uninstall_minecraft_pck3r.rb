@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-require './requirement_ruby.rb'
+require './library_requirements/requirement'
 require 'fileutils'
 sys_status("start_install")
 Dir.chdir("/root") do

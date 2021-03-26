@@ -3,11 +3,11 @@
  mehrzero@gmail.com :]
  
 =end
-require './requirement_ruby.rb'
+require './library_requirements/requirement'
 home=Dir.home
-Dir.chdir(home)
+Dir.chdir(home+"/.pck3r")
 def tlauncher()
-  if (system"wget https://tlauncher.org/jar;unzip jar;rm README-* .txt jar;mv TLauncher* .TLauncher.jar ")!=true
+  if (system"wget https://tlauncher.org/jar;unzip jar;rm README-* .txt jar;mv TLauncher* TLauncher.jar ")!=true
     sys_status"error"
     return 1
   else
@@ -24,5 +24,5 @@ if tlauncher()!=0
   print "The operation was a failure\nTlauncher not found !\n".red
   sys_status"error"
 else
-  print "/.TLauncher.jar\nPlease try : \n".green,"$ pck3r minecraft\n".bold.brown
+  print "/TLauncher.jar\nPlease try : \n".green,"$ pck3r minecraft\n".bold.brown
 end
