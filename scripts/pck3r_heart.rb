@@ -1,10 +1,9 @@
 #!/usr/bin/ruby
 =begin
  mehrzero@gmail.com :]
- example :
- heart (char=string,message = string,sysSleep=float-number,cast=int-number,write_line = int-number)
+ example : heart (char=string,message = string,sysSleep=float-number,cast=int-number,write_line = int-number)
 =end
-def heart (char=".̅",message = "pck3r",sysSleep=0.009,cast=4,write_line = 1)
+def heart (char="@",message = "pck3r",sysSleep=0.009,cast=4,write_line = 1)
   messagelen= ""
   # head
   if (message.length % 2)!=0;message += " "end
@@ -35,5 +34,4 @@ def heart (char=".̅",message = "pck3r",sysSleep=0.009,cast=4,write_line = 1)
     print "\n"
   end #5
 end
-# start pck3r-heart
-heart()
+heart()# start pck3r-heart
