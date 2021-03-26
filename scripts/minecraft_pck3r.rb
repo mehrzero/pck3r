@@ -1,9 +1,6 @@
 #!/usr/bin/ruby
-=begin
- mehrzero@gmail.com :]
- 
-=end
-require './library_requirements/requirement'
+ # mehrzero@gmail.com :]
+require './requirements/library'
 home=Dir.home
 Dir.chdir(home+"/.pck3r")
 def tlauncher()

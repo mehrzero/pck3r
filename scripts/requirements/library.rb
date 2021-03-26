@@ -1,9 +1,7 @@
 #!/usr/bin/ruby
-=begin
- mehrzero@gmail.com :]
- example :
-sys_status() "error" or "not_error" or "start_install" or ""
-=end
+
+ # mehrzero@gmail.com :]
+ # example : sys_status() "error" or "not_error" or "start_install" or ""
 class String # color zone
   def red;            "\e[31m#{self}\e[0m" end
   def green;          "\e[32m#{self}\e[0m" end
@@ -23,7 +21,10 @@ def sys_status(status="")# "error" or "not_error" or "start_install" or ""
   elsif status=="not_error"
     print "尸⼕长㇌尺 :".green.bold," OK !".green.bold,"\n"
   elsif status=="start_install"
-    print "尸⼕长㇌尺 :".brown.bold,"\n\t    Press ENTER key to continue ...".blink.brown.bold
+    print "尸⼕长㇌尺 :".brown.bold,"\n\t    Press ENTER key to continue or (exit ctrl+c)...".blink.brown.bold
+    gets.chomp
+  elsif status=="start_install2"
+    print "尸⼕长㇌尺 :".brown.bold,"\n\t    Press ENTER key to continue or (exit ctrl+c)...".brown.bold
     gets.chomp
   else
     print "尸⼕长㇌尺 :".brown.bold,"\n\t    System status unknown".blink.brown.bold,"\n"

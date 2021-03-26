@@ -1,8 +1,5 @@
 #!/usr/bin/ruby
-=begin
- mehrzero@gmail.com :]
- example : heart (char=string,message = string,sysSleep=float-number,cast=int-number,write_line = int-number)
-=end
+# mehrzero@gmail.com :]
 def heart (char="@",message = "pck3r",sysSleep=0.009,cast=4,write_line = 1)
   messagelen= ""
   # head

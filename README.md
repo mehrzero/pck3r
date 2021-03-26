@@ -62,13 +62,6 @@ $ ./installer.py
         or ...
     }
     
-"uninstall" command :
-
-    $ pck3r uninstall "somthing" :
-    {
-        minecraft
-    }
-
 "clear" command :
 
     $ pck3r clear:
